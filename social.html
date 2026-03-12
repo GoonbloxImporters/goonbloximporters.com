@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOONBLOX — Social Media Logos & Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chakra+Petch:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --neon-magenta: #FF2D78;
+  --electric-violet: #8B5CF6;
+  --cyber-teal: #06D6A0;
+  --solar-amber: #FFB627;
+  --plasma-blue: #3B82F6;
+  --hot-coral: #FF6B6B;
+  --void-black: #0A0A0F;
+  --deep-space: #12121C;
+  --nebula-gray: #1E1E2E;
+  --steel: #2A2A3E;
+  --muted: #6B7280;
+  --silver: #A1A1B5;
+  --cloud: #E5E5F0;
+  --pure-white: #FAFAFF;
+  --grad-primary: linear-gradient(135deg, var(--neon-magenta), var(--electric-violet));
+  --font-display: 'Archivo Black', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --font-ui: 'Chakra Petch', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior:smooth; scrollbar-width:thin; scrollbar-color:var(--electric-violet) var(--void-black); }
+body { background:var(--void-black); color:var(--cloud); font-family:var(--font-body); line-height:1.6; overflow-x:hidden; }
+::selection { background:var(--neon-magenta); color:white; }
+body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
+
+/* Nav */
+nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:1rem 2.5rem; display:flex; justify-content:space-between; align-items:center; background:rgba(10,10,15,0.85); backdrop-filter:blur(20px); border-bottom:1px solid rgba(139,92,246,0.1); }
+.nav-logo { display:flex; align-items:center; gap:0.6rem; text-decoration:none; }
+.nav-logo svg { width:28px; height:28px; }
+.nav-logo span { font-family:var(--font-display); font-size:0.75rem; letter-spacing:0.1em; background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+.nav-links a { color:var(--silver); text-decoration:none; font-family:var(--font-ui); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color:var(--pure-white); }
+
+/* Hero */
+.page-hero { padding:7rem 2rem 3rem; text-align:center; position:relative; }
+.page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(255,45,120,0.06) 0%,transparent 60%); }
+.back-link { position:relative; z-index:2; display:inline-flex; align-items:center; gap:0.4rem; font-family:var(--font-ui); font-size:0.7rem; letter-spacing:0.08em; color:var(--muted); text-decoration:none; margin-bottom:1.5rem; transition:color 0.3s; }
+.back-link:hover { color:var(--pure-white); }
+.back-link svg { width:14px; height:14px; }
+.page-hero h1 { position:relative; z-index:2; font-family:var(--font-heading); font-size:clamp(2rem,4vw,3rem); font-weight:800; margin-bottom:0.6rem; }
+.page-hero p { position:relative; z-index:2; color:var(--silver); max-width:500px; margin:0 auto; font-size:0.95rem; }
+
+/* Sections */
+.platform-section { max-width:1100px; margin:0 auto; padding:3rem 2rem 4rem; }
+.platform-header { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid rgba(139,92,246,0.08); }
+.platform-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.platform-icon svg { width:20px; height:20px; }
+.platform-header h2 { font-family:var(--font-heading); font-weight:800; font-size:1.4rem; }
+.platform-header .dl-all { margin-left:auto; }
+
+/* Asset grid */
+.assets-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.5rem; }
+.asset-card { background:var(--nebula-gray); border:1px solid rgba(139,92,246,0.06); border-radius:16px; overflow:hidden; transition:transform 0.3s, border-color 0.3s; }
+.asset-card:hover { transform:translateY(-3px); border-color:rgba(139,92,246,0.2); }
+.asset-preview { position:relative; background:#0d0d14; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:1.5rem; }
+.asset-preview canvas, .asset-preview .svg-template { max-width:100%; height:auto; border-radius:6px; box-shadow:0 4px 20px rgba(0,0,0,0.4); overflow:hidden; }
+.svg-template svg { display:block; }
+.asset-meta { padding:1rem 1.2rem; display:flex; align-items:center; justify-content:space-between; }
+.asset-info h4 { font-family:var(--font-ui); font-size:0.8rem; font-weight:700; margin-bottom:0.15rem; }
+.asset-info .dims { font-family:var(--font-ui); font-size:0.6rem; color:var(--muted); letter-spacing:0.08em; }
+.dl-btn { display:inline-flex; align-items:center; gap:0.4rem; padding:0.4rem 0.9rem; border-radius:50px; border:1px solid rgba(139,92,246,0.3); background:rgba(139,92,246,0.08); color:var(--electric-violet); font-family:var(--font-ui); font-size:0.6rem; font-weight:700; letter-spacing:0.06em; cursor:pointer; transition:all 0.25s; text-transform:uppercase; }
+.dl-btn:hover { background:rgba(139,92,246,0.2); border-color:var(--electric-violet); color:var(--pure-white); transform:translateY(-1px); }
+.dl-btn svg { width:12px; height:12px; }
+.dl-btn-primary { background:var(--grad-primary); border:none; color:white; }
+.dl-btn-primary:hover { box-shadow:0 4px 16px rgba(255,45,120,0.3); color:white; }
+
+.divider { width:100%; max-width:1100px; margin:0 auto; height:1px; background:linear-gradient(to right,transparent,rgba(139,92,246,0.12),transparent); }
+
+/* Toast */
+.toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:var(--cyber-teal); color:var(--void-black); font-family:var(--font-ui); font-weight:700; font-size:0.75rem; letter-spacing:0.08em; padding:0.6rem 1.3rem; border-radius:50px; opacity:0; transition:all 0.3s; z-index:10000; pointer-events:none; }
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* Footer */
+footer { text-align:center; padding:3rem 2rem; border-top:1px solid rgba(139,92,246,0.08); }
+footer .f-logo { font-family:var(--font-display); font-size:0.9rem; background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+footer .f-copy { font-size:0.7rem; color:var(--steel); margin-top:0.4rem; }
+
+@media(max-width:768px) {
+  .assets-grid { grid-template-columns:1fr; }
+  .nav-links { display:none; }
+  .platform-section { padding:2rem 1.5rem 3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 100 100" fill="none"><defs><linearGradient id="nl" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect x="5" y="5" width="90" height="90" rx="16" fill="url(#nl)"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="white"/><rect x="54" y="50" width="12" height="12" rx="2" fill="white"/></svg>
+    <span>GOONBLOX</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="brand.html">Brand</a></li>
+    <li><a href="social.html" class="active">Social</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to Home
+  </a>
+  <h1>Social Media Assets</h1>
+  <p>Ready-to-use logos and templates for every platform. Click download on any asset.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============ X / TWITTER ============ -->
+<div class="platform-section" id="twitter">
+  <div class="platform-header">
+    <div class="platform-icon" style="background:#000;">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </div>
+    <h2>X / Twitter</h2>
+    <button class="dl-btn dl-btn-primary dl-all" onclick="downloadPlatform('twitter')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download All
+    </button>
+  </div>
+  <div class="assets-grid">
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="tw-profile" data-platform="twitter" data-type="profile" data-w="400" data-h="400"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Profile Picture</h4><div class="dims">400 x 400 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('tw-profile','goonblox-x-profile-400x400')">PNG</button>
+      </div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="tw-header" data-platform="twitter" data-type="header" data-w="1500" data-h="500"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Header / Banner</h4><div class="dims">1500 x 500 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('tw-header','goonblox-x-header-1500x500')">PNG</button>
+      </div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="tw-post" data-platform="twitter" data-type="post" data-w="1200" data-h="675"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Post Image</h4><div class="dims">1200 x 675 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('tw-post','goonblox-x-post-1200x675')">PNG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============ INSTAGRAM ============ -->
+<div class="platform-section" id="instagram">
+  <div class="platform-header">
+    <div class="platform-icon" style="background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF,#515BD4);">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </div>
+    <h2>Instagram</h2>
+    <button class="dl-btn dl-btn-primary dl-all" onclick="downloadPlatform('instagram')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download All
+    </button>
+  </div>
+  <div class="assets-grid">
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="ig-profile" data-platform="instagram" data-type="profile" data-w="320" data-h="320"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Profile Picture</h4><div class="dims">320 x 320 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('ig-profile','goonblox-ig-profile-320x320')">PNG</button>
+      </div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="ig-square" data-platform="instagram" data-type="square" data-w="1080" data-h="1080"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Square Post</h4><div class="dims">1080 x 1080 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('ig-square','goonblox-ig-square-1080x1080')">PNG</button>
+      </div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="ig-landscape" data-platform="instagram" data-type="landscape" data-w="1080" data-h="566"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Landscape Post</h4><div class="dims">1080 x 566 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('ig-landscape','goonblox-ig-landscape-1080x566')">PNG</button>
+      </div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="ig-story" data-platform="instagram" data-type="story" data-w="1080" data-h="1920"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Story / Reel</h4><div class="dims">1080 x 1920 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('ig-story','goonblox-ig-story-1080x1920')">PNG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============ TIKTOK ============ -->
+<div class="platform-section" id="tiktok">
+  <div class="platform-header">
+    <div class="platform-icon" style="background:#000;">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13.2a8.16 8.16 0 005.58 2.2V12a4.85 4.85 0 01-2.42-.66 4.83 4.83 0 01-1.58-1.41V6.69z"/></svg>
+    </div>
+    <h2>TikTok</h2>
+    <button class="dl-btn dl-btn-primary dl-all" onclick="downloadPlatform('tiktok')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download All
+    </button>
+  </div>
+  <div class="assets-grid">
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="tt-profile" data-platform="tiktok" data-type="profile" data-w="200" data-h="200"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Profile Picture</h4><div class="dims">200 x 200 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('tt-profile','goonblox-tiktok-profile-200x200')">PNG</button>
+      </div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="tt-cover" data-platform="tiktok" data-type="story" data-w="1080" data-h="1920"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Video Cover</h4><div class="dims">1080 x 1920 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('tt-cover','goonblox-tiktok-cover-1080x1920')">PNG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============ LINKEDIN ============ -->
+<div class="platform-section" id="linkedin">
+  <div class="platform-header">
+    <div class="platform-icon" style="background:#0A66C2;">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </div>
+    <h2>LinkedIn</h2>
+    <button class="dl-btn dl-btn-primary dl-all" onclick="downloadPlatform('linkedin')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download All
+    </button>
+  </div>
+  <div class="assets-grid">
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="li-profile" data-platform="linkedin" data-type="profile" data-w="400" data-h="400"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Profile Picture</h4><div class="dims">400 x 400 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('li-profile','goonblox-linkedin-profile-400x400')">PNG</button>
+      </div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="li-cover" data-platform="linkedin" data-type="cover" data-w="1584" data-h="396"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Company Cover</h4><div class="dims">1584 x 396 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('li-cover','goonblox-linkedin-cover-1584x396')">PNG</button>
+      </div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-preview"><canvas id="li-post" data-platform="linkedin" data-type="post" data-w="1200" data-h="627"></canvas></div>
+      <div class="asset-meta">
+        <div class="asset-info"><h4>Feed Post</h4><div class="dims">1200 x 627 px</div></div>
+        <button class="dl-btn" onclick="dlCanvas('li-post','goonblox-linkedin-post-1200x627')">PNG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<footer>
+  <div class="f-logo">GOONBLOX IMPORTERS</div>
+  <div class="f-copy">&copy; 2025 Goonblox Importers, Inc.</div>
+</footer>
+
+<div class="toast" id="toast">Downloaded!</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+// ===== BRAND CONSTANTS =====
+const C = {
+  magenta:'#FF2D78', violet:'#8B5CF6', teal:'#06D6A0',
+  amber:'#FFB627', blue:'#3B82F6', coral:'#FF6B6B',
+  black:'#0A0A0F', deep:'#12121C', gray:'#1E1E2E',
+  silver:'#A1A1B5', white:'#FAFAFF'
+};
+
+// C4 floating blocks — exact positions from the official SVG (in 400-unit space)
+const C4_BLOCKS = [
+  { x:66, y:74, s:28, rx:5, color:C.magenta, op:0.2, rot:12 },
+  { x:320,y:86, s:20, rx:4, color:C.violet,  op:0.2, rot:-8 },
+  { x:80, y:308,s:24, rx:4, color:C.teal,    op:0.15,rot:20 },
+  { x:316,y:300,s:32, rx:6, color:C.magenta,  op:0.15,rot:-15 },
+  { x:328,y:188,s:16, rx:3, color:C.amber,   op:0.12,rot:25 },
+  { x:65, y:189,s:18, rx:3, color:C.violet,  op:0.12,rot:-10 },
+];
+
+// ===== DRAWING HELPERS =====
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y);
+  ctx.closePath();
+}
+
+// Draw the G letterform — uses the official SVG path scaled from 400-unit space
+// In the SVG: G body spans x=116..272, y=128..272 (center ~194, 200)
+// G notch: x=224,y=200,w=72,h=72
+function drawGPath(ctx, originX, originY, scale, fillStyle){
+  ctx.save();
+  ctx.translate(originX, originY);
+  ctx.scale(scale, scale);
+  ctx.fillStyle = fillStyle;
+  // G body (translated so 0,0 is center of the G at ~194,200 in 400-space)
+  ctx.beginPath();
+  ctx.moveTo(78,-72);   // 272-194, 128-200
+  ctx.lineTo(-42,-72);  // 152-194
+  ctx.bezierCurveTo(-62,-72,-78,-56,-78,-36); // arc to 116,164
+  ctx.lineTo(-78,36);   // 116,236
+  ctx.bezierCurveTo(-78,56,-62,72,-42,72);    // arc to 152,272
+  ctx.lineTo(54,72);    // 248,272
+  ctx.lineTo(54,24);    // 248,224
+  ctx.lineTo(-18,24);   // 176,224
+  ctx.lineTo(-18,-24);  // 176,176
+  ctx.lineTo(78,-24);   // 272,176
+  ctx.closePath();
+  ctx.fill();
+  // G notch rectangle
+  roundRect(ctx, 30, 0, 72, 72, 12); // 224-194=30, 200-200=0
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawGradientG(ctx, cx, cy, scale){
+  const extent = 78 * scale;
+  const g = ctx.createLinearGradient(cx-extent, cy-extent, cx+extent, cy+extent);
+  g.addColorStop(0, C.magenta); g.addColorStop(1, C.violet);
+  drawGPath(ctx, cx, cy, scale, g);
+}
+
+// Draw blocks matching C4 style, scaled to any canvas size
+function drawC4Blocks(ctx, canvasSize){
+  const s = canvasSize / 400; // scale factor from 400-unit reference
+  C4_BLOCKS.forEach(b => {
+    ctx.save();
+    ctx.translate(b.x * s, b.y * s);
+    ctx.rotate(b.rot * Math.PI / 180);
+    ctx.globalAlpha = b.op;
+    ctx.fillStyle = b.color;
+    const half = (b.s * s) / 2;
+    const r = (b.rx * s);
+    roundRect(ctx, -half, -half, b.s * s, b.s * s, r);
+    ctx.fill();
+    ctx.restore();
+  });
+  ctx.globalAlpha = 1;
+}
+
+// Scatter decorative blocks for larger canvases (banners, posts)
+function drawScatterBlocks(ctx, w, h, count, baseOpacity){
+  const colors = [C.magenta, C.violet, C.teal, C.amber, C.blue, C.coral];
+  // Use seeded-ish random for consistent renders
+  let seed = w * 7 + h * 13;
+  const rand = () => { seed = (seed * 16807 + 7) % 2147483647; return seed / 2147483647; };
+  for(let i = 0; i < count; i++){
+    const size = Math.min(w,h) * (0.015 + rand() * 0.04);
+    const x = rand() * w;
+    const y = rand() * h;
+    const rot = (rand() - 0.5) * 0.7;
+    const col = colors[Math.floor(rand() * colors.length)];
+    ctx.save();
+    ctx.translate(x, y); ctx.rotate(rot);
+    ctx.globalAlpha = baseOpacity * (0.4 + rand() * 0.6);
+    ctx.fillStyle = col;
+    roundRect(ctx, -size/2, -size/2, size, size, size * 0.18);
+    ctx.fill();
+    ctx.restore();
+  }
+  ctx.globalAlpha = 1;
+}
+
+// ===== C4 PROFILE PIC =====
+// Matches the official SVG exactly: dark circle, 6 colored blocks, gradient G at 40% size
+function drawC4Profile(ctx, size){
+  const s = size / 400;
+  ctx.save();
+  ctx.beginPath(); ctx.arc(size/2, size/2, size/2, 0, Math.PI*2); ctx.clip();
+  // Dark background
+  ctx.fillStyle = C.black; ctx.fillRect(0, 0, size, size);
+  // Exact C4 blocks
+  drawC4Blocks(ctx, size);
+  // Gradient G — in SVG the G center is at ~(194,200) in 400-space, scale=s
+  drawGradientG(ctx, 194 * s, 200 * s, s);
+  ctx.restore();
+}
+
+// ===== SVG TEMPLATE BUILDERS =====
+// All non-profile templates rendered as inline SVGs for crisp, professional output
+
+// Monogram SVG snippet (the square logo with gradient bg + white G)
+function monoSVG(size, id){
+  return `<g>
+    <defs><linearGradient id="mg${id}" x1="0" y1="0" x2="${size}" y2="${size}" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
+    <rect width="${size}" height="${size}" rx="${size*0.18}" fill="url(#mg${id})"/>
+    <path d="M${size*0.62} ${size*0.38}H${size*0.42}C${size*0.387} ${size*0.38} ${size*0.36} ${size*0.407} ${size*0.36} ${size*0.44}V${size*0.56}C${size*0.36} ${size*0.593} ${size*0.387} ${size*0.62} ${size*0.42} ${size*0.62}H${size*0.58}V${size*0.54}H${size*0.46}V${size*0.46}H${size*0.62}V${size*0.38}Z" fill="white"/>
+    <rect x="${size*0.54}" y="${size*0.50}" width="${size*0.12}" height="${size*0.12}" rx="${size*0.02}" fill="white"/>
+  </g>`;
+}
+
+// Floating blocks SVG snippet
+function blocksSVG(w, h, id, count){
+  const colors = [C.magenta, C.violet, C.teal, C.amber, C.blue, C.coral];
+  const opacities = [0.12, 0.08, 0.15, 0.1, 0.06, 0.12, 0.09, 0.14, 0.07, 0.11, 0.13, 0.08];
+  const rotations = [12, -8, 20, -15, 25, -10, 18, -22, 7, -12, 30, -5];
+  let svg = '';
+  // Use golden-ratio based positions for organic but non-random placement
+  const phi = 1.618033988749;
+  for(let i = 0; i < count; i++){
+    const t = i / count;
+    const col = colors[i % colors.length];
+    const op = opacities[i % opacities.length];
+    const rot = rotations[i % rotations.length];
+    const s = Math.min(w, h) * (0.02 + (i % 3) * 0.015);
+    const px = ((t * phi * 7) % 1) * w * 0.9 + w * 0.05;
+    const py = ((t * phi * 11) % 1) * h * 0.9 + h * 0.05;
+    const rx = s * 0.18;
+    svg += `<rect x="${px - s/2}" y="${py - s/2}" width="${s}" height="${s}" rx="${rx}" fill="${col}" opacity="${op}" transform="rotate(${rot},${px},${py})"/>`;
+  }
+  return svg;
+}
+
+// Render intentionally-placed decorative blocks
+function rBlocks(bs){
+  return bs.map(b=>`<rect x="${b.x-b.s/2}" y="${b.y-b.s/2}" width="${b.s}" height="${b.s}" rx="${b.s*0.18}" fill="${b.c}" opacity="${b.o}" transform="rotate(${b.r},${b.x},${b.y})"/>`).join('');
+}
+
+// Build full SVG for banner/header — "Nebula Sweep" composition
+function buildBannerSVG(w, h, tagline){
+  const ms = h*0.15;
+  const blocks = [
+    {x:w*0.05,y:h*0.14,s:h*0.10,c:C.magenta,o:0.18,r:15},
+    {x:w*0.10,y:h*0.30,s:h*0.07,c:C.violet, o:0.14,r:-10},
+    {x:w*0.03,y:h*0.42,s:h*0.05,c:C.teal,   o:0.10,r:22},
+    {x:w*0.83,y:h*0.18,s:h*0.08,c:C.blue,   o:0.12,r:-14},
+    {x:w*0.78,y:h*0.36,s:h*0.05,c:C.magenta,o:0.08,r:28},
+    {x:w*0.52,y:h*0.88,s:h*0.08,c:C.amber,  o:0.13,r:-18},
+    {x:w*0.62,y:h*0.82,s:h*0.05,c:C.violet, o:0.09,r:8},
+    {x:w*0.32,y:h*0.10,s:h*0.04,c:C.coral,  o:0.07,r:-5},
+    {x:w*0.42,y:h*0.92,s:h*0.04,c:C.teal,   o:0.06,r:16},
+    {x:w*0.94,y:h*0.82,s:h*0.06,c:C.violet, o:0.10,r:-20},
+  ];
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
+  <defs>
+    <linearGradient id="btg" x1="0" y1="0" x2="${w}" y2="${h}" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="bg1" cx="15%" cy="50%" r="40%">
+      <stop stop-color="${C.violet}" stop-opacity="0.09"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg2" cx="80%" cy="55%" r="30%">
+      <stop stop-color="${C.magenta}" stop-opacity="0.06"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg3" cx="50%" cy="15%" r="45%">
+      <stop stop-color="${C.blue}" stop-opacity="0.04"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bbar" x1="${w*0.08}" y1="0" x2="${w*0.32}" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="${C.black}"/>
+  <rect width="${w}" height="${h}" fill="url(#bg1)"/>
+  <rect width="${w}" height="${h}" fill="url(#bg2)"/>
+  <rect width="${w}" height="${h}" fill="url(#bg3)"/>
+  ${rBlocks(blocks)}
+  <text x="${w*0.08}" y="${h*0.55}" font-family="'Archivo Black',sans-serif" font-size="${h*0.26}" font-weight="900" fill="url(#btg)">GOONBLOX</text>
+  <text x="${w*0.08}" y="${h*0.73}" font-family="'Chakra Petch',sans-serif" font-size="${h*0.06}" font-weight="600" letter-spacing="${h*0.035}" fill="${C.silver}">IMPORTERS</text>
+  <rect x="${w*0.08}" y="${h*0.80}" width="${w*0.18}" height="3" rx="1.5" fill="url(#bbar)" opacity="0.6"/>
+  <g transform="translate(${w*0.87},${h*0.60})">${monoSVG(ms, 'bn')}</g>
+  ${tagline ? `<text x="${w*0.96}" y="${h*0.16}" font-family="'Chakra Petch',sans-serif" font-size="${h*0.042}" font-weight="700" letter-spacing="${h*0.008}" fill="${C.teal}" text-anchor="end" opacity="0.9">${tagline}</text>` : ''}
+</svg>`;
+}
+
+// Build full SVG for post — "Central Command" centered composition
+function buildPostSVG(w, h, text){
+  const m = Math.min(w,h);
+  const ms = m*0.10;
+  const blocks = [
+    {x:w*0.15,y:h*0.22,s:m*0.05,c:C.magenta,o:0.16,r:12},
+    {x:w*0.85,y:h*0.18,s:m*0.04,c:C.violet, o:0.12,r:-15},
+    {x:w*0.12,y:h*0.78,s:m*0.06,c:C.teal,   o:0.14,r:20},
+    {x:w*0.88,y:h*0.75,s:m*0.045,c:C.amber, o:0.11,r:-8},
+    {x:w*0.35,y:h*0.10,s:m*0.035,c:C.blue,  o:0.10,r:25},
+    {x:w*0.68,y:h*0.88,s:m*0.04,c:C.coral,  o:0.09,r:-22},
+    {x:w*0.06,y:h*0.08,s:m*0.05,c:C.violet, o:0.08,r:18},
+    {x:w*0.94,y:h*0.06,s:m*0.035,c:C.magenta,o:0.07,r:-12},
+    {x:w*0.08,y:h*0.92,s:m*0.04,c:C.teal,   o:0.06,r:30},
+    {x:w*0.92,y:h*0.90,s:m*0.055,c:C.amber, o:0.08,r:-25},
+  ];
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
+  <defs>
+    <linearGradient id="ptg" x1="${w*0.2}" y1="${h*0.2}" x2="${w*0.8}" y2="${h*0.8}" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="pg1" cx="50%" cy="38%" r="35%">
+      <stop stop-color="${C.violet}" stop-opacity="0.10"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pg2" cx="35%" cy="65%" r="28%">
+      <stop stop-color="${C.magenta}" stop-opacity="0.05"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pring" cx="50%" cy="33%" r="20%">
+      <stop stop-opacity="0"/><stop offset="0.82" stop-opacity="0"/>
+      <stop offset="0.88" stop-color="${C.violet}" stop-opacity="0.06"/>
+      <stop offset="0.94" stop-color="${C.violet}" stop-opacity="0.03"/>
+      <stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pbar" x1="${w*0.38}" y1="0" x2="${w*0.62}" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2D78" stop-opacity="0"/><stop offset="0.3" stop-color="#FF2D78"/>
+      <stop offset="0.7" stop-color="#8B5CF6"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="${C.black}"/>
+  <rect width="${w}" height="${h}" fill="url(#pg1)"/>
+  <rect width="${w}" height="${h}" fill="url(#pg2)"/>
+  <rect width="${w}" height="${h}" fill="url(#pring)"/>
+  ${rBlocks(blocks)}
+  <g transform="translate(${(w-ms)/2},${h*0.24})">${monoSVG(ms, 'ps')}</g>
+  <text x="${w/2}" y="${h*0.54}" font-family="'Archivo Black',sans-serif" font-size="${m*0.12}" font-weight="900" fill="url(#ptg)" text-anchor="middle">GOONBLOX</text>
+  <text x="${w/2}" y="${h*0.63}" font-family="'Chakra Petch',sans-serif" font-size="${m*0.032}" font-weight="600" letter-spacing="${m*0.018}" fill="${C.silver}" text-anchor="middle">IMPORTERS</text>
+  <rect x="${w*0.38}" y="${h*0.68}" width="${w*0.24}" height="2.5" rx="1.25" fill="url(#pbar)" opacity="0.5"/>
+  ${text ? `<text x="${w/2}" y="${h*0.82}" font-family="'Chakra Petch',sans-serif" font-size="${m*0.025}" font-weight="700" letter-spacing="${m*0.006}" fill="${C.teal}" text-anchor="middle" opacity="0.9">${text}</text>` : ''}
+</svg>`;
+}
+
+// Build full SVG for story/vertical — "Vertical Monument" composition
+function buildStorySVG(w, h){
+  const ms = w*0.14;
+  const blocks = [
+    {x:w*0.08,y:h*0.05,s:w*0.10,c:C.magenta,o:0.20,r:15},
+    {x:w*0.88,y:h*0.04,s:w*0.07,c:C.violet, o:0.16,r:-12},
+    {x:w*0.15,y:h*0.12,s:w*0.06,c:C.teal,   o:0.14,r:25},
+    {x:w*0.92,y:h*0.13,s:w*0.08,c:C.amber,  o:0.12,r:-8},
+    {x:w*0.06,y:h*0.22,s:w*0.05,c:C.blue,   o:0.10,r:18},
+    {x:w*0.94,y:h*0.25,s:w*0.04,c:C.coral,  o:0.08,r:-20},
+    {x:w*0.12,y:h*0.60,s:w*0.04,c:C.violet, o:0.06,r:10},
+    {x:w*0.90,y:h*0.65,s:w*0.05,c:C.magenta,o:0.07,r:-15},
+    {x:w*0.08,y:h*0.90,s:w*0.06,c:C.teal,   o:0.05,r:22},
+    {x:w*0.92,y:h*0.88,s:w*0.04,c:C.amber,  o:0.06,r:-28},
+    {x:w*0.50,y:h*0.03,s:w*0.05,c:C.violet, o:0.15,r:30},
+    {x:w*0.75,y:h*0.08,s:w*0.06,c:C.magenta,o:0.12,r:-6},
+  ];
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
+  <defs>
+    <linearGradient id="stg" x1="0" y1="${h*0.28}" x2="${w}" y2="${h*0.45}" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="sg1" cx="50%" cy="12%" r="30%">
+      <stop stop-color="${C.violet}" stop-opacity="0.14"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sg2" cx="30%" cy="8%" r="25%">
+      <stop stop-color="${C.magenta}" stop-opacity="0.10"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sg3" cx="70%" cy="6%" r="22%">
+      <stop stop-color="${C.teal}" stop-opacity="0.06"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="svl" x1="0" y1="${h*0.56}" x2="0" y2="${h*0.76}" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="${C.black}"/>
+  <rect width="${w}" height="${h}" fill="url(#sg1)"/>
+  <rect width="${w}" height="${h}" fill="url(#sg2)"/>
+  <rect width="${w}" height="${h}" fill="url(#sg3)"/>
+  ${rBlocks(blocks)}
+  <g transform="translate(${(w-ms)/2},${h*0.19})">${monoSVG(ms, 'st')}</g>
+  <text x="${w/2}" y="${h*0.39}" font-family="'Archivo Black',sans-serif" font-size="${w*0.18}" font-weight="900" fill="url(#stg)" text-anchor="middle">GOON</text>
+  <text x="${w/2}" y="${h*0.47}" font-family="'Archivo Black',sans-serif" font-size="${w*0.18}" font-weight="900" fill="url(#stg)" text-anchor="middle">BLOX</text>
+  <text x="${w/2}" y="${h*0.52}" font-family="'Chakra Petch',sans-serif" font-size="${w*0.04}" font-weight="600" letter-spacing="${w*0.025}" fill="${C.silver}" text-anchor="middle">IMPORTERS</text>
+  <rect x="${w/2-1.5}" y="${h*0.56}" width="3" height="${h*0.18}" rx="1.5" fill="url(#svl)" opacity="0.5"/>
+  <text x="${w/2}" y="${h*0.84}" font-family="'Chakra Petch',sans-serif" font-size="${w*0.035}" font-weight="700" letter-spacing="${w*0.01}" fill="${C.teal}" text-anchor="middle" opacity="0.9">WE BUILD WORLDS</text>
+</svg>`;
+}
+
+// Build full SVG for wide cover — "Horizon Line" composition
+function buildCoverSVG(w, h){
+  const ms = h*0.50;
+  const mx = w*0.03;
+  const my = (h-ms)/2;
+  const blocks = [
+    {x:w*0.55,y:h*0.15,s:h*0.12,c:C.magenta,o:0.12,r:15},
+    {x:w*0.70,y:h*0.80,s:h*0.10,c:C.violet, o:0.10,r:-10},
+    {x:w*0.85,y:h*0.20,s:h*0.08,c:C.teal,   o:0.08,r:22},
+    {x:w*0.40,y:h*0.85,s:h*0.07,c:C.amber,  o:0.07,r:-18},
+    {x:w*0.92,y:h*0.75,s:h*0.09,c:C.blue,   o:0.06,r:12},
+    {x:w*0.20,y:h*0.12,s:h*0.06,c:C.coral,  o:0.05,r:-8},
+  ];
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">
+  <defs>
+    <linearGradient id="ctg" x1="${w*0.1}" y1="0" x2="${w*0.5}" y2="${h}" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="cg1" cx="18%" cy="50%" r="30%">
+      <stop stop-color="${C.violet}" stop-opacity="0.08"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cg2" cx="75%" cy="40%" r="25%">
+      <stop stop-color="${C.magenta}" stop-opacity="0.04"/><stop offset="1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cbar" x1="0" y1="0" x2="${w}" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2D78" stop-opacity="0"/><stop offset="0.15" stop-color="#FF2D78" stop-opacity="0.4"/>
+      <stop offset="0.85" stop-color="#8B5CF6" stop-opacity="0.4"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="${C.black}"/>
+  <rect width="${w}" height="${h}" fill="url(#cg1)"/>
+  <rect width="${w}" height="${h}" fill="url(#cg2)"/>
+  ${rBlocks(blocks)}
+  <rect x="0" y="${h*0.82}" width="${w}" height="1.5" fill="url(#cbar)" opacity="0.3"/>
+  <g transform="translate(${mx},${my})">${monoSVG(ms, 'cv')}</g>
+  <text x="${mx+ms+w*0.025}" y="${h*0.53}" font-family="'Archivo Black',sans-serif" font-size="${h*0.32}" font-weight="900" fill="url(#ctg)">GOONBLOX</text>
+  <text x="${mx+ms+w*0.025}" y="${h*0.75}" font-family="'Chakra Petch',sans-serif" font-size="${h*0.075}" font-weight="600" letter-spacing="${h*0.02}" fill="${C.silver}">IMPORTERS</text>
+  <text x="${w*0.97}" y="${h*0.56}" font-family="'Chakra Petch',sans-serif" font-size="${h*0.055}" font-weight="700" letter-spacing="${h*0.008}" fill="${C.teal}" text-anchor="end" opacity="0.9">WE BUILD WORLDS</text>
+</svg>`;
+}
+
+// ===== RENDER =====
+function renderAll(){
+  // Profile pics stay as canvas (C4 circle style)
+  document.querySelectorAll('canvas[data-type="profile"]').forEach(cvs => {
+    const w = +cvs.dataset.w;
+    cvs.width = w; cvs.height = w;
+    const maxD = 280;
+    const r = Math.min(maxD / w, 1);
+    cvs.style.width = (w * r) + 'px';
+    cvs.style.height = (w * r) + 'px';
+    drawC4Profile(cvs.getContext('2d'), w);
+  });
+
+  // All other types: replace canvas with SVG
+  document.querySelectorAll('canvas[data-type]:not([data-type="profile"])').forEach(cvs => {
+    const w = +cvs.dataset.w;
+    const h = +cvs.dataset.h;
+    const type = cvs.dataset.type;
+    const id = cvs.id;
+    let svgStr;
+    switch(type){
+      case 'header':    svgStr = buildBannerSVG(w, h, 'WE BUILD WORLDS'); break;
+      case 'landscape': svgStr = buildBannerSVG(w, h, 'WE BUILD WORLDS'); break;
+      case 'post':      svgStr = buildPostSVG(w, h, 'MERGE · COLLECT · COMPETE'); break;
+      case 'square':    svgStr = buildPostSVG(w, h, 'MERGE · COLLECT · COMPETE'); break;
+      case 'story':     svgStr = buildStorySVG(w, h); break;
+      case 'cover':     svgStr = buildCoverSVG(w, h); break;
+    }
+    // Create wrapper div
+    const wrapper = document.createElement('div');
+    wrapper.id = id;
+    wrapper.dataset.w = w;
+    wrapper.dataset.h = h;
+    wrapper.dataset.type = type;
+    wrapper.dataset.platform = cvs.dataset.platform;
+    wrapper.className = 'svg-template';
+    wrapper.innerHTML = svgStr;
+    // Scale for display
+    const maxD = 300;
+    const ratio = Math.min(maxD / w, maxD / h, 1);
+    wrapper.style.width = (w * ratio) + 'px';
+    wrapper.style.height = (h * ratio) + 'px';
+    const svg = wrapper.querySelector('svg');
+    if(svg){ svg.style.width = '100%'; svg.style.height = '100%'; }
+    cvs.replaceWith(wrapper);
+  });
+}
+
+document.fonts.ready.then(renderAll);
+
+// ===== DOWNLOAD =====
+function dlCanvas(id, name){
+  const el = document.getElementById(id);
+  if(!el) return;
+  // If it's a canvas (profile pic), download directly
+  if(el.tagName === 'CANVAS'){
+    const link = document.createElement('a');
+    link.download = name + '.png';
+    link.href = el.toDataURL('image/png');
+    link.click();
+    showToast('Downloaded ' + name + '.png');
+    return;
+  }
+  // SVG template — render to canvas via SVG blob
+  const svg = el.querySelector('svg');
+  if(!svg) return;
+  showToast('Rendering...');
+  const w = +el.dataset.w;
+  const h = +el.dataset.h;
+  const svgData = new XMLSerializer().serializeToString(svg);
+  const blob = new Blob([svgData], {type:'image/svg+xml;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, w, h);
+    const link = document.createElement('a');
+    link.download = name + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    URL.revokeObjectURL(url);
+    showToast('Downloaded ' + name + '.png');
+  };
+  img.src = url;
+}
+
+function downloadPlatform(platform){
+  const section = document.getElementById(platform);
+  if(!section) return;
+  // Profiles (canvas)
+  section.querySelectorAll('canvas[data-type="profile"]').forEach(cvs => {
+    const link = document.createElement('a');
+    link.download = `goonblox-${platform}-profile-${cvs.dataset.w}x${cvs.dataset.h}.png`;
+    link.href = cvs.toDataURL('image/png');
+    link.click();
+  });
+  // SVG templates
+  section.querySelectorAll('.svg-template').forEach(el => {
+    const svg = el.querySelector('svg');
+    if(!svg) return;
+    const w = +el.dataset.w, h = +el.dataset.h;
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const blob = new Blob([svgData], {type:'image/svg+xml;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const link = document.createElement('a');
+      link.download = `goonblox-${platform}-${el.dataset.type}-${w}x${h}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+  });
+  showToast(`Downloaded all ${platform} assets`);
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+</script>
+</body>
+</html>

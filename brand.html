@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOONBLOX IMPORTERS — Brand Assets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chakra+Petch:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --neon-magenta: #FF2D78;
+  --electric-violet: #8B5CF6;
+  --cyber-teal: #06D6A0;
+  --solar-amber: #FFB627;
+  --plasma-blue: #3B82F6;
+  --hot-coral: #FF6B6B;
+  --void-black: #0A0A0F;
+  --deep-space: #12121C;
+  --nebula-gray: #1E1E2E;
+  --steel: #2A2A3E;
+  --muted: #6B7280;
+  --silver: #A1A1B5;
+  --cloud: #E5E5F0;
+  --pure-white: #FAFAFF;
+  --grad-primary: linear-gradient(135deg, var(--neon-magenta), var(--electric-violet));
+  --grad-secondary: linear-gradient(135deg, var(--electric-violet), var(--cyber-teal));
+  --grad-accent: linear-gradient(135deg, var(--solar-amber), var(--neon-magenta));
+  --grad-cool: linear-gradient(135deg, var(--cyber-teal), var(--plasma-blue));
+  --font-display: 'Archivo Black', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --font-ui: 'Chakra Petch', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--electric-violet) var(--void-black); }
+body { background: var(--void-black); color: var(--cloud); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+::selection { background: var(--neon-magenta); color: white; }
+
+/* Noise */
+body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
+
+/* ===== NAV ===== */
+nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:1rem 2.5rem; display:flex; justify-content:space-between; align-items:center; background:rgba(10,10,15,0.8); backdrop-filter:blur(20px); border-bottom:1px solid rgba(139,92,246,0.1); transition:all 0.3s; }
+nav.scrolled { padding:0.6rem 2.5rem; background:rgba(10,10,15,0.95); }
+.nav-logo { display:flex; align-items:center; gap:0.6rem; text-decoration:none; }
+.nav-logo svg { width:28px; height:28px; }
+.nav-logo span { font-family:var(--font-display); font-size:0.75rem; letter-spacing:0.1em; background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+.nav-links a { color:var(--silver); text-decoration:none; font-family:var(--font-ui); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.3s; }
+.nav-links a:hover { color:var(--pure-white); }
+.nav-links a.active { color:var(--pure-white); }
+.nav-cta { padding:0.45rem 1.2rem; border-radius:50px; background:var(--grad-primary); color:white !important; font-weight:700; -webkit-text-fill-color:white !important; transition:transform 0.2s, box-shadow 0.2s !important; }
+.nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(255,45,120,0.3); }
+
+/* ===== HERO HEADER ===== */
+.brand-hero { padding:8rem 2rem 4rem; text-align:center; position:relative; overflow:hidden; }
+.brand-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.08) 0%, transparent 60%); }
+.brand-hero .section-tag { position:relative; z-index:2; }
+.brand-hero h1 { position:relative; z-index:2; font-family:var(--font-heading); font-size:clamp(2.5rem,5vw,4rem); font-weight:800; line-height:1.1; margin-bottom:1rem; }
+.brand-hero p { position:relative; z-index:2; color:var(--silver); max-width:550px; margin:0 auto; font-size:1rem; }
+.back-link { position:relative; z-index:2; display:inline-flex; align-items:center; gap:0.4rem; font-family:var(--font-ui); font-size:0.7rem; letter-spacing:0.08em; color:var(--muted); text-decoration:none; margin-bottom:1.5rem; transition:color 0.3s; }
+.back-link:hover { color:var(--pure-white); }
+.back-link svg { width:14px; height:14px; }
+
+/* ===== SECTIONS ===== */
+section { padding:4rem 2rem; max-width:1100px; margin:0 auto; position:relative; }
+.section-tag { font-family:var(--font-ui); font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--neon-magenta); margin-bottom:0.6rem; }
+.section-title { font-family:var(--font-heading); font-size:clamp(1.5rem,3vw,2rem); font-weight:800; margin-bottom:1rem; line-height:1.1; }
+
+/* ===== BRAND ASSETS ===== */
+.assets-toggle { display:flex; align-items:center; justify-content:space-between; cursor:pointer; padding:1.2rem 1.5rem; background:var(--nebula-gray); border:1px solid rgba(139,92,246,0.1); border-radius:16px; transition:all 0.3s; margin-bottom:1rem; }
+.assets-toggle:hover { border-color:rgba(139,92,246,0.3); }
+.assets-toggle h3 { font-family:var(--font-heading); font-weight:800; font-size:1.1rem; }
+.assets-toggle .toggle-arrow { font-size:1.2rem; color:var(--muted); transition:transform 0.3s; }
+.assets-toggle.open .toggle-arrow { transform:rotate(180deg); }
+.assets-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease; }
+.assets-content.open { max-height:20000px; }
+.assets-inner { padding:1rem 0; }
+
+/* Logo grid */
+.logo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.25rem; margin-bottom:2rem; }
+.logo-card { border-radius:16px; padding:2rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:180px; position:relative; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; }
+.logo-card:hover { transform:translateY(-3px); }
+.logo-card.dark-bg { background:var(--nebula-gray); border:1px solid rgba(139,92,246,0.08); }
+.logo-card.dark-bg:hover { box-shadow:0 8px 30px rgba(139,92,246,0.15); border-color:rgba(139,92,246,0.25); }
+.logo-card.light-bg { background:var(--pure-white); border:1px solid rgba(0,0,0,0.05); }
+.logo-card.gradient-bg { background:var(--grad-primary); }
+.logo-card-label { position:absolute; top:0.8rem; left:0.8rem; font-family:var(--font-ui); font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; opacity:0.4; }
+.logo-card.light-bg .logo-card-label { color:var(--steel); }
+.logo-lockup { font-family:var(--font-display); line-height:1; text-align:center; }
+.logo-lockup .main-text { display:block; font-size:1.6rem; letter-spacing:-0.01em; }
+.logo-lockup .sub-text { display:block; font-family:var(--font-ui); font-size:0.6rem; letter-spacing:0.3em; font-weight:600; margin-top:0.2rem; }
+.logo-lockup.gradient-text .main-text { background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.logo-lockup.gradient-text .sub-text { color:var(--silver); }
+.logo-lockup.dark-text .main-text { color:var(--void-black); }
+.logo-lockup.dark-text .sub-text { color:var(--steel); }
+.logo-lockup.white-text .main-text { color:var(--pure-white); }
+.logo-lockup.white-text .sub-text { color:rgba(255,255,255,0.7); }
+.monogram-display { width:90px; height:90px; }
+
+/* Color palette */
+.color-row { display:flex; gap:0.8rem; margin-bottom:1.5rem; flex-wrap:wrap; }
+.color-chip { width:80px; height:80px; border-radius:12px; cursor:pointer; transition:transform 0.2s; position:relative; }
+.color-chip:hover { transform:scale(1.08); }
+.color-chip-label { position:absolute; bottom:-1.4rem; left:0; right:0; text-align:center; font-family:var(--font-ui); font-size:0.5rem; letter-spacing:0.05em; color:var(--muted); }
+.color-group-label { font-family:var(--font-ui); font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:0.8rem; }
+
+/* Badges */
+.badge-row { display:flex; gap:1.5rem; flex-wrap:wrap; align-items:center; margin:1.5rem 0; }
+.powered-badge { display:inline-flex; align-items:center; gap:0.5rem; padding:0.5rem 1rem; border-radius:50px; font-family:var(--font-ui); font-size:0.65rem; font-weight:600; letter-spacing:0.08em; }
+.powered-badge .badge-g { width:18px; height:18px; flex-shrink:0; }
+.badge-dark { background:var(--nebula-gray); border:1px solid rgba(139,92,246,0.2); color:var(--cloud); }
+.badge-gradient { background:var(--grad-primary); color:white; }
+.badge-outline { background:transparent; border:1.5px solid var(--electric-violet); color:var(--electric-violet); }
+
+/* Download buttons */
+.dl-btn { display:inline-flex; align-items:center; gap:0.4rem; padding:0.35rem 0.8rem; border-radius:50px; border:1px solid rgba(139,92,246,0.25); background:rgba(139,92,246,0.06); color:var(--electric-violet); font-family:var(--font-ui); font-size:0.55rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; transition:all 0.25s; }
+.dl-btn:hover { background:rgba(139,92,246,0.15); border-color:var(--electric-violet); color:var(--pure-white); transform:translateY(-1px); }
+.dl-btn svg { width:12px; height:12px; }
+.dl-row { display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.8rem; }
+.section-dl-bar { display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1.5rem; padding:0.8rem 1rem; background:rgba(139,92,246,0.03); border:1px solid rgba(139,92,246,0.08); border-radius:10px; align-items:center; }
+.section-dl-bar .dl-bar-label { font-family:var(--font-ui); font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-right:0.3rem; }
+
+/* ===== FOOTER ===== */
+footer { text-align:center; padding:3rem 2rem; border-top:1px solid rgba(139,92,246,0.08); }
+footer .f-logo { font-family:var(--font-display); font-size:0.9rem; background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+footer .f-sub { font-family:var(--font-ui); font-size:0.55rem; letter-spacing:0.25em; color:var(--muted); margin:0.3rem 0 1rem; }
+footer .f-copy { font-size:0.7rem; color:var(--steel); }
+
+.divider { width:100%; max-width:1100px; margin:0 auto; height:1px; background:linear-gradient(to right,transparent,rgba(139,92,246,0.15),transparent); }
+.reveal { opacity:0; transform:translateY(25px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.copied-toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:var(--cyber-teal); color:var(--void-black); font-family:var(--font-ui); font-weight:700; font-size:0.75rem; letter-spacing:0.08em; padding:0.6rem 1.3rem; border-radius:50px; opacity:0; transition:all 0.3s; z-index:10000; pointer-events:none; }
+.copied-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+@media(max-width:768px) {
+  .logo-grid { grid-template-columns:1fr; }
+  .nav-links { display:none; }
+  section { padding:3rem 1.5rem; }
+  .brand-hero { padding:7rem 1.5rem 3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 100 100" fill="none"><defs><linearGradient id="nl" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect x="5" y="5" width="90" height="90" rx="16" fill="url(#nl)"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="white"/><rect x="54" y="50" width="12" height="12" rx="2" fill="white"/></svg>
+    <span>GOONBLOX</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#games">Games</a></li>
+    <li><a href="index.html#zones">Zones</a></li>
+    <li><a href="brand.html" class="active">Brand</a></li>
+    <li><a href="index.html#games" class="nav-cta">Play Now</a></li>
+  </ul>
+</nav>
+
+<!-- BRAND HERO -->
+<div class="brand-hero">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to Home
+  </a>
+  <div class="section-tag">Brand Kit</div>
+  <h1>Brand Assets</h1>
+  <p>Logos, colors, typography, and badges for press, creators, and partners. Download what you need.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- BRAND ASSETS -->
+<section id="brand">
+  <!-- LOGOS -->
+  <div class="assets-toggle open reveal" onclick="toggleAssets(this)">
+    <h3>Logo System</h3>
+    <span class="toggle-arrow">&#9660;</span>
+  </div>
+  <div class="assets-content open">
+    <div class="assets-inner">
+      <div class="section-dl-bar">
+        <span class="dl-bar-label">Export All:</span>
+        <button class="dl-btn" onclick="downloadAllLogos('svg')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>All SVG</button>
+        <button class="dl-btn" onclick="downloadAllLogos('png')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>All PNG</button>
+      </div>
+      <div class="logo-grid">
+        <div class="logo-card dark-bg" id="logo-dark">
+          <div class="logo-card-label">Dark</div>
+          <div class="logo-lockup gradient-text"><span class="main-text">GOONBLOX</span><span class="sub-text">IMPORTERS</span></div>
+        </div>
+        <div class="logo-card light-bg" id="logo-light">
+          <div class="logo-card-label">Light</div>
+          <div class="logo-lockup dark-text"><span class="main-text">GOONBLOX</span><span class="sub-text">IMPORTERS</span></div>
+        </div>
+        <div class="logo-card gradient-bg" id="logo-gradient">
+          <div class="logo-card-label">Gradient</div>
+          <div class="logo-lockup white-text"><span class="main-text">GOONBLOX</span><span class="sub-text">IMPORTERS</span></div>
+        </div>
+        <div class="logo-card dark-bg" id="logo-monogram">
+          <div class="logo-card-label">Monogram</div>
+          <div class="monogram-display">
+            <svg viewBox="0 0 100 100" fill="none"><defs><linearGradient id="mc1" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect x="5" y="5" width="90" height="90" rx="16" fill="url(#mc1)"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="white"/><rect x="54" y="50" width="12" height="12" rx="2" fill="white"/></svg>
+          </div>
+        </div>
+        <!-- C4 Social Profile -->
+        <div class="logo-card dark-bg" id="logo-c4-circle" style="background:#0A0A0F;">
+          <div class="logo-card-label">Social Profile (C4)</div>
+          <svg viewBox="0 0 400 400" width="100" height="100" style="border-radius:50%;"><defs><linearGradient id="c4g" x1="116" y1="128" x2="296" y2="272" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient><clipPath id="c4c"><circle cx="200" cy="200" r="200"/></clipPath></defs><g clip-path="url(#c4c)"><rect width="400" height="400" fill="#0A0A0F"/><rect x="52" y="60" width="28" height="28" rx="5" fill="#FF2D78" opacity="0.2" transform="rotate(12,66,74)"/><rect x="310" y="76" width="20" height="20" rx="4" fill="#8B5CF6" opacity="0.2" transform="rotate(-8,320,86)"/><rect x="68" y="296" width="24" height="24" rx="4" fill="#06D6A0" opacity="0.15" transform="rotate(20,80,308)"/><rect x="300" y="284" width="32" height="32" rx="6" fill="#FF2D78" opacity="0.15" transform="rotate(-15,316,300)"/><rect x="320" y="180" width="16" height="16" rx="3" fill="#FFB627" opacity="0.12" transform="rotate(25,328,188)"/><rect x="56" y="180" width="18" height="18" rx="3" fill="#8B5CF6" opacity="0.12" transform="rotate(-10,65,189)"/><path d="M272 128H152C132 128 116 144 116 164V236C116 256 132 272 152 272H248V224H176V176H272V128Z" fill="url(#c4g)"/><rect x="224" y="200" width="72" height="72" rx="12" fill="url(#c4g)"/></g></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLORS -->
+  <div class="assets-toggle open reveal" onclick="toggleAssets(this)">
+    <h3>Color Palette</h3>
+    <span class="toggle-arrow">&#9660;</span>
+  </div>
+  <div class="assets-content open">
+    <div class="assets-inner">
+      <div class="color-group-label">Primary</div>
+      <div class="color-row" style="margin-bottom:2.5rem;">
+        <div class="color-chip" style="background:#FF2D78;" onclick="copyColor('#FF2D78','Neon Magenta')"><span class="color-chip-label">#FF2D78</span></div>
+        <div class="color-chip" style="background:#8B5CF6;" onclick="copyColor('#8B5CF6','Electric Violet')"><span class="color-chip-label">#8B5CF6</span></div>
+        <div class="color-chip" style="background:#06D6A0;" onclick="copyColor('#06D6A0','Cyber Teal')"><span class="color-chip-label">#06D6A0</span></div>
+      </div>
+      <div class="color-group-label">Secondary</div>
+      <div class="color-row" style="margin-bottom:2.5rem;">
+        <div class="color-chip" style="background:#FFB627;" onclick="copyColor('#FFB627','Solar Amber')"><span class="color-chip-label">#FFB627</span></div>
+        <div class="color-chip" style="background:#3B82F6;" onclick="copyColor('#3B82F6','Plasma Blue')"><span class="color-chip-label">#3B82F6</span></div>
+        <div class="color-chip" style="background:#FF6B6B;" onclick="copyColor('#FF6B6B','Hot Coral')"><span class="color-chip-label">#FF6B6B</span></div>
+      </div>
+      <div class="color-group-label">Neutrals</div>
+      <div class="color-row">
+        <div class="color-chip" style="background:#0A0A0F;border:1px solid rgba(255,255,255,0.08);" onclick="copyColor('#0A0A0F','Void Black')"><span class="color-chip-label">#0A0A0F</span></div>
+        <div class="color-chip" style="background:#12121C;" onclick="copyColor('#12121C','Deep Space')"><span class="color-chip-label">#12121C</span></div>
+        <div class="color-chip" style="background:#1E1E2E;" onclick="copyColor('#1E1E2E','Nebula Gray')"><span class="color-chip-label">#1E1E2E</span></div>
+        <div class="color-chip" style="background:#A1A1B5;" onclick="copyColor('#A1A1B5','Silver')"><span class="color-chip-label">#A1A1B5</span></div>
+        <div class="color-chip" style="background:#FAFAFF;" onclick="copyColor('#FAFAFF','Pure White')"><span class="color-chip-label">#FAFAFF</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BADGES -->
+  <div class="assets-toggle open reveal" onclick="toggleAssets(this)">
+    <h3>Powered by Goonblox Badges</h3>
+    <span class="toggle-arrow">&#9660;</span>
+  </div>
+  <div class="assets-content open">
+    <div class="assets-inner">
+      <div class="badge-row">
+        <div class="powered-badge badge-dark">
+          <svg class="badge-g" viewBox="0 0 100 100" fill="none"><defs><linearGradient id="bdg1" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect x="5" y="5" width="90" height="90" rx="16" fill="url(#bdg1)"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="white"/><rect x="54" y="50" width="12" height="12" rx="2" fill="white"/></svg>
+          POWERED BY GOONBLOX
+        </div>
+        <div class="powered-badge badge-gradient">
+          <svg class="badge-g" viewBox="0 0 100 100" fill="none"><rect x="5" y="5" width="90" height="90" rx="16" fill="rgba(255,255,255,0.2)"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="white"/><rect x="54" y="50" width="12" height="12" rx="2" fill="white"/></svg>
+          POWERED BY GOONBLOX
+        </div>
+        <div class="powered-badge badge-outline">
+          <svg class="badge-g" viewBox="0 0 100 100" fill="none"><defs><linearGradient id="bdg2" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect x="5" y="5" width="90" height="90" rx="16" fill="url(#bdg2)"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="white"/><rect x="54" y="50" width="12" height="12" rx="2" fill="white"/></svg>
+          POWERED BY GOONBLOX
+        </div>
+      </div>
+      <div class="dl-row">
+        <button class="dl-btn" onclick="downloadBadgeSVG()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Badges SVG</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="assets-toggle open reveal" onclick="toggleAssets(this)">
+    <h3>Typography</h3>
+    <span class="toggle-arrow">&#9660;</span>
+  </div>
+  <div class="assets-content open">
+    <div class="assets-inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div style="padding:1.5rem;background:var(--nebula-gray);border-radius:12px;"><div style="font-family:var(--font-display);font-size:2rem;margin-bottom:0.5rem;">Archivo Black</div><div style="font-family:var(--font-ui);font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">DISPLAY / LOGO</div></div>
+        <div style="padding:1.5rem;background:var(--nebula-gray);border-radius:12px;"><div style="font-family:var(--font-heading);font-weight:800;font-size:2rem;margin-bottom:0.5rem;">Syne Bold</div><div style="font-family:var(--font-ui);font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">HEADLINES</div></div>
+        <div style="padding:1.5rem;background:var(--nebula-gray);border-radius:12px;"><div style="font-family:var(--font-ui);font-weight:700;font-size:1.5rem;margin-bottom:0.5rem;">Chakra Petch</div><div style="font-family:var(--font-ui);font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">UI / LABELS / BUTTONS</div></div>
+        <div style="padding:1.5rem;background:var(--nebula-gray);border-radius:12px;"><div style="font-family:var(--font-body);font-size:1.5rem;margin-bottom:0.5rem;">DM Sans</div><div style="font-family:var(--font-ui);font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;">BODY TEXT</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGO OPTIONS (saved alternatives) -->
+  <div class="assets-toggle reveal" onclick="toggleAssets(this)">
+    <h3>Circle Logo Alternatives</h3>
+    <span class="toggle-arrow">&#9660;</span>
+  </div>
+  <div class="assets-content">
+    <div class="assets-inner">
+      <p style="color:var(--muted);font-size:0.85rem;margin-bottom:1.5rem;">C4 (Dark + Gradient G) is the official choice. Alternatives saved for reference.</p>
+      <div class="logo-grid">
+        <div class="logo-card dark-bg" style="background:#0A0A0F;">
+          <div class="logo-card-label" style="color:var(--cyber-teal);">C4 — Official</div>
+          <svg viewBox="0 0 400 400" width="90" height="90" style="border-radius:50%;"><defs><linearGradient id="alt4" x1="116" y1="128" x2="296" y2="272" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient><clipPath id="alt4c"><circle cx="200" cy="200" r="200"/></clipPath></defs><g clip-path="url(#alt4c)"><rect width="400" height="400" fill="#0A0A0F"/><rect x="52" y="60" width="28" height="28" rx="5" fill="#FF2D78" opacity="0.2" transform="rotate(12,66,74)"/><rect x="310" y="76" width="20" height="20" rx="4" fill="#8B5CF6" opacity="0.2" transform="rotate(-8,320,86)"/><rect x="68" y="296" width="24" height="24" rx="4" fill="#06D6A0" opacity="0.15" transform="rotate(20,80,308)"/><rect x="300" y="284" width="32" height="32" rx="6" fill="#FF2D78" opacity="0.15" transform="rotate(-15,316,300)"/><rect x="320" y="180" width="16" height="16" rx="3" fill="#FFB627" opacity="0.12" transform="rotate(25,328,188)"/><rect x="56" y="180" width="18" height="18" rx="3" fill="#8B5CF6" opacity="0.12" transform="rotate(-10,65,189)"/><path d="M272 128H152C132 128 116 144 116 164V236C116 256 132 272 152 272H248V224H176V176H272V128Z" fill="url(#alt4)"/><rect x="224" y="200" width="72" height="72" rx="12" fill="url(#alt4)"/></g></svg>
+        </div>
+        <div class="logo-card dark-bg">
+          <div class="logo-card-label">Original</div>
+          <svg viewBox="0 0 400 400" width="90" height="90" style="border-radius:50%;"><defs><linearGradient id="altO" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient><clipPath id="altOc"><circle cx="200" cy="200" r="200"/></clipPath></defs><g clip-path="url(#altOc)"><rect width="400" height="400" fill="url(#altO)"/><rect x="52" y="60" width="28" height="28" rx="5" fill="rgba(255,255,255,0.15)" transform="rotate(12,66,74)"/><rect x="310" y="76" width="20" height="20" rx="4" fill="rgba(255,255,255,0.12)" transform="rotate(-8,320,86)"/><rect x="68" y="296" width="24" height="24" rx="4" fill="rgba(255,255,255,0.1)" transform="rotate(20,80,308)"/><rect x="300" y="284" width="32" height="32" rx="6" fill="rgba(255,255,255,0.12)" transform="rotate(-15,316,300)"/><path d="M272 128H152C132 128 116 144 116 164V236C116 256 132 272 152 272H248V224H176V176H272V128Z" fill="white"/><rect x="224" y="200" width="72" height="72" rx="12" fill="white"/></g></svg>
+        </div>
+        <div class="logo-card dark-bg">
+          <div class="logo-card-label">Violet&#8594;Teal</div>
+          <svg viewBox="0 0 400 400" width="90" height="90" style="border-radius:50%;"><defs><linearGradient id="altVT" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#8B5CF6"/><stop offset="1" stop-color="#06D6A0"/></linearGradient><clipPath id="altVTc"><circle cx="200" cy="200" r="200"/></clipPath></defs><g clip-path="url(#altVTc)"><rect width="400" height="400" fill="url(#altVT)"/><rect x="52" y="60" width="28" height="28" rx="5" fill="rgba(255,255,255,0.15)" transform="rotate(12,66,74)"/><rect x="310" y="76" width="20" height="20" rx="4" fill="rgba(255,255,255,0.12)" transform="rotate(-8,320,86)"/><rect x="68" y="296" width="24" height="24" rx="4" fill="rgba(255,255,255,0.1)" transform="rotate(20,80,308)"/><rect x="300" y="284" width="32" height="32" rx="6" fill="rgba(255,255,255,0.12)" transform="rotate(-15,316,300)"/><path d="M272 128H152C132 128 116 144 116 164V236C116 256 132 272 152 272H248V224H176V176H272V128Z" fill="white"/><rect x="224" y="200" width="72" height="72" rx="12" fill="white"/></g></svg>
+        </div>
+        <div class="logo-card dark-bg">
+          <div class="logo-card-label">Amber&#8594;Magenta</div>
+          <svg viewBox="0 0 400 400" width="90" height="90" style="border-radius:50%;"><defs><linearGradient id="altAM" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB627"/><stop offset="1" stop-color="#FF2D78"/></linearGradient><clipPath id="altAMc"><circle cx="200" cy="200" r="200"/></clipPath></defs><g clip-path="url(#altAMc)"><rect width="400" height="400" fill="url(#altAM)"/><rect x="52" y="60" width="28" height="28" rx="5" fill="rgba(255,255,255,0.15)" transform="rotate(12,66,74)"/><rect x="310" y="76" width="20" height="20" rx="4" fill="rgba(255,255,255,0.12)" transform="rotate(-8,320,86)"/><rect x="68" y="296" width="24" height="24" rx="4" fill="rgba(255,255,255,0.1)" transform="rotate(20,80,308)"/><rect x="300" y="284" width="32" height="32" rx="6" fill="rgba(255,255,255,0.12)" transform="rotate(-15,316,300)"/><path d="M272 128H152C132 128 116 144 116 164V236C116 256 132 272 152 272H248V224H176V176H272V128Z" fill="white"/><rect x="224" y="200" width="72" height="72" rx="12" fill="white"/></g></svg>
+        </div>
+        <div class="logo-card dark-bg">
+          <div class="logo-card-label">Teal&#8594;Blue</div>
+          <svg viewBox="0 0 400 400" width="90" height="90" style="border-radius:50%;"><defs><linearGradient id="altTB" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#06D6A0"/><stop offset="1" stop-color="#3B82F6"/></linearGradient><clipPath id="altTBc"><circle cx="200" cy="200" r="200"/></clipPath></defs><g clip-path="url(#altTBc)"><rect width="400" height="400" fill="url(#altTB)"/><rect x="52" y="60" width="28" height="28" rx="5" fill="rgba(255,255,255,0.15)" transform="rotate(12,66,74)"/><rect x="310" y="76" width="20" height="20" rx="4" fill="rgba(255,255,255,0.12)" transform="rotate(-8,320,86)"/><rect x="68" y="296" width="24" height="24" rx="4" fill="rgba(255,255,255,0.1)" transform="rotate(20,80,308)"/><rect x="300" y="284" width="32" height="32" rx="6" fill="rgba(255,255,255,0.12)" transform="rotate(-15,316,300)"/><path d="M272 128H152C132 128 116 144 116 164V236C116 256 132 272 152 272H248V224H176V176H272V128Z" fill="white"/><rect x="224" y="200" width="72" height="72" rx="12" fill="white"/></g></svg>
+        </div>
+        <div class="logo-card dark-bg">
+          <div class="logo-card-label">Coral&#8594;Violet</div>
+          <svg viewBox="0 0 400 400" width="90" height="90" style="border-radius:50%;"><defs><linearGradient id="altCV" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#FF6B6B"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient><clipPath id="altCVc"><circle cx="200" cy="200" r="200"/></clipPath></defs><g clip-path="url(#altCVc)"><rect width="400" height="400" fill="url(#altCV)"/><rect x="52" y="60" width="28" height="28" rx="5" fill="rgba(255,255,255,0.15)" transform="rotate(12,66,74)"/><rect x="310" y="76" width="20" height="20" rx="4" fill="rgba(255,255,255,0.12)" transform="rotate(-8,320,86)"/><rect x="68" y="296" width="24" height="24" rx="4" fill="rgba(255,255,255,0.1)" transform="rotate(20,80,308)"/><rect x="300" y="284" width="32" height="32" rx="6" fill="rgba(255,255,255,0.12)" transform="rotate(-15,316,300)"/><path d="M272 128H152C132 128 116 144 116 164V236C116 256 132 272 152 272H248V224H176V176H272V128Z" fill="white"/><rect x="224" y="200" width="72" height="72" rx="12" fill="white"/></g></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="divider"></div>
+<footer>
+  <div class="f-logo">GOONBLOX IMPORTERS</div>
+  <div class="f-sub">WE BUILD WORLDS</div>
+  <div class="f-copy">&copy; 2025 Goonblox Importers, Inc. — Chris & Gio — All Rights Reserved</div>
+</footer>
+
+<div class="copied-toast" id="copiedToast">Copied!</div>
+
+<script>
+// ===== NAV =====
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+// ===== REVEAL =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== TOGGLE ASSETS =====
+function toggleAssets(el) {
+  el.classList.toggle('open');
+  const content = el.nextElementSibling;
+  content.classList.toggle('open');
+}
+
+// ===== COPY COLOR =====
+function copyColor(hex, name) {
+  navigator.clipboard.writeText(hex).then(() => showToast(`Copied ${name} — ${hex}`));
+}
+function showToast(msg) {
+  const t = document.getElementById('copiedToast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+// ===== DOWNLOAD UTILS =====
+function triggerDownload(url, name) {
+  const a = document.createElement('a'); a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+
+function generateMonogramSVG() {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512" fill="none"><defs><linearGradient id="g1" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FF2D78"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><rect x="5" y="5" width="90" height="90" rx="16" fill="url(#g1)"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="white"/><rect x="54" y="50" width="12" height="12" rx="2" fill="white"/></svg>`;
+}
+
+function generateLogoSVG(variant) {
+  const fills = { dark: ['url(#lg)','#A1A1B5','#1E1E2E'], light: ['#0A0A0F','#2A2A3E','#FAFAFF'], gradient: ['#FAFAFF','rgba(255,255,255,0.7)','url(#bg)'] };
+  const f = fills[variant] || fills.dark;
+  const defs = variant === 'dark' ? `<defs><linearGradient id="lg" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FF2D78"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs>` : variant === 'gradient' ? `<defs><linearGradient id="bg" x1="0" y1="0" x2="600" y2="200" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FF2D78"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs>` : '';
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">${defs}<rect width="600" height="200" rx="16" fill="${f[2]}"/><text x="300" y="100" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="64" fill="${f[0]}" letter-spacing="-1">GOONBLOX</text><text x="300" y="140" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="20" fill="${f[1]}" letter-spacing="10">IMPORTERS</text></svg>`;
+}
+
+function downloadAllLogos(fmt) {
+  if (fmt === 'svg') {
+    ['dark','light','gradient'].forEach(v => {
+      const b = new Blob([generateLogoSVG(v)], {type:'image/svg+xml'});
+      triggerDownload(URL.createObjectURL(b), `goonblox-logo-${v}.svg`);
+    });
+    const mb = new Blob([generateMonogramSVG()], {type:'image/svg+xml'});
+    triggerDownload(URL.createObjectURL(mb), 'goonblox-monogram.svg');
+    showToast('Downloaded all SVGs');
+  } else {
+    showToast('Rendering PNGs...');
+    ['logo-dark','logo-light','logo-gradient','logo-monogram'].forEach(async id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const c = await html2canvas(el, {scale:3,backgroundColor:null,logging:false});
+      triggerDownload(c.toDataURL('image/png'), id + '.png');
+    });
+    setTimeout(() => showToast('Downloaded all PNGs'), 2000);
+  }
+}
+
+function downloadBadgeSVG() {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 50" width="640" height="100"><defs><linearGradient id="bg" x1="0" y1="0" x2="320" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FF2D78"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient></defs><rect width="320" height="50" rx="25" fill="url(#bg)"/><g transform="translate(10,7)"><rect width="36" height="36" rx="8" fill="rgba(255,255,255,0.2)"/><path d="M24 12H15C13.3 12 12 13.3 12 15V21C12 22.7 13.3 24 15 24H21V20H16V16H24V12Z" fill="white"/><rect x="20" y="18" width="6" height="6" rx="1" fill="white"/></g><text x="58" y="31" font-family="Arial,sans-serif" font-weight="700" font-size="13" fill="white" letter-spacing="2">POWERED BY GOONBLOX</text></svg>`;
+  const b = new Blob([svg], {type:'image/svg+xml'});
+  triggerDownload(URL.createObjectURL(b), 'goonblox-powered-badge.svg');
+  showToast('Downloaded badge SVG');
+}
+</script>
+</body>
+</html>
