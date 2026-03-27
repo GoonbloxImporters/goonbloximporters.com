@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Goonblox Importers | Roblox Game Development Insights</title>
+<meta name="description" content="Roblox game development blog by Goonblox Importers. Tips, behind-the-scenes stories, game design insights, and updates from an indie Roblox studio.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://goonbloximporters.com/blog.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://goonbloximporters.com/blog.html">
+<meta property="og:title" content="Blog — Goonblox Importers">
+<meta property="og:description" content="Roblox game development blog. Tips, behind-the-scenes stories, and game design insights from an indie studio.">
+<meta property="og:image" content="https://goonbloximporters.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chakra+Petch:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root {
+  --neon-magenta: #FF2D78;
+  --electric-violet: #8B5CF6;
+  --cyber-teal: #06D6A0;
+  --solar-amber: #FFB627;
+  --plasma-blue: #3B82F6;
+  --hot-coral: #FF6B6B;
+  --void-black: #0A0A0F;
+  --deep-space: #12121C;
+  --nebula-gray: #1E1E2E;
+  --steel: #2A2A3E;
+  --muted: #6B7280;
+  --silver: #A1A1B5;
+  --cloud: #E5E5F0;
+  --pure-white: #FAFAFF;
+  --grad-primary: linear-gradient(135deg, var(--neon-magenta), var(--electric-violet));
+  --grad-secondary: linear-gradient(135deg, var(--electric-violet), var(--cyber-teal));
+  --font-display: 'Archivo Black', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --font-ui: 'Chakra Petch', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--void-black); color: var(--cloud); font-family: var(--font-body); line-height: 1.6; }
+::selection { background: var(--neon-magenta); color: white; }
+a { color: var(--cyber-teal); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--pure-white); }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:1rem 2.5rem; display:flex; justify-content:space-between; align-items:center; background:rgba(10,10,15,0.95); backdrop-filter:blur(20px); border-bottom:1px solid rgba(139,92,246,0.1); }
+.nav-logo { display:flex; align-items:center; gap:0.6rem; text-decoration:none; }
+.nav-logo svg { width:28px; height:28px; }
+.nav-logo span { font-family:var(--font-display); font-size:0.75rem; letter-spacing:0.1em; background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+.nav-links a { color:var(--silver); text-decoration:none; font-family:var(--font-ui); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; }
+.nav-links a:hover { color:var(--pure-white); }
+.nav-links a.active { color:var(--cyber-teal); }
+.nav-cta { padding:0.45rem 1.2rem; border-radius:50px; background:var(--grad-primary); color:white !important; font-weight:700; -webkit-text-fill-color:white !important; }
+
+/* CONTENT */
+.page-header { padding: 8rem 2rem 3rem; max-width: 900px; margin: 0 auto; text-align: center; }
+.page-header h1 { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 0.5rem; background: var(--grad-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.page-header p { color: var(--silver); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+.blog-grid { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 6rem; display: flex; flex-direction: column; gap: 2rem; }
+
+.blog-card { display: flex; gap: 2rem; background: var(--deep-space); border: 1px solid var(--steel); border-radius: 16px; padding: 2rem; transition: border-color 0.3s, transform 0.2s; text-decoration: none; color: inherit; }
+.blog-card:hover { border-color: var(--electric-violet); transform: translateY(-2px); color: inherit; }
+.blog-card-number { font-family: var(--font-display); font-size: 3rem; background: var(--grad-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; min-width: 60px; }
+.blog-card-content { flex: 1; }
+.blog-card-tag { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--neon-magenta); margin-bottom: 0.4rem; }
+.blog-card-content h2 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: var(--pure-white); margin-bottom: 0.5rem; line-height: 1.2; }
+.blog-card-content p { color: var(--silver); font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.6rem; }
+.blog-card-meta { font-family: var(--font-ui); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; }
+
+@media (max-width: 600px) {
+  .blog-card { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+  .blog-card-number { font-size: 2rem; }
+  nav { padding: 0.8rem 1.2rem; }
+  .nav-links { display: none; }
+}
+
+footer { text-align:center; padding:3rem 2rem; border-top:1px solid var(--steel); }
+.f-logo { font-family:var(--font-display); font-size:0.7rem; letter-spacing:0.15em; background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.f-sub { font-family:var(--font-ui); font-size:0.55rem; letter-spacing:0.3em; color:var(--muted); margin-top:0.3rem; }
+.f-links { margin-top:1rem; }
+.f-links a { color:var(--silver); font-size:0.75rem; text-decoration:none; }
+.f-links a:hover { color:var(--pure-white); }
+.f-copy { font-size:0.65rem; color:var(--muted); margin-top:1rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="22" fill="#12121C"/>
+      <defs><linearGradient id="ng" x1="20" y1="20" x2="80" y2="80"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
+      <rect x="20" y="20" width="18" height="18" rx="3" fill="url(#ng)" opacity="0.3"/>
+      <rect x="62" y="24" width="12" height="12" rx="2" fill="url(#ng)" opacity="0.2"/>
+      <rect x="22" y="66" width="14" height="14" rx="2" fill="url(#ng)" opacity="0.25"/>
+      <path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="url(#ng)"/>
+      <rect x="54" y="50" width="12" height="12" rx="2" fill="url(#ng)"/>
+    </svg>
+    <span>GOONBLOX IMPORTERS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#games">Games</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="brand.html">Brand</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <h1>Dev Blog</h1>
+  <p>Behind-the-scenes stories, Roblox game development insights, and lessons learned from building MergePets.</p>
+</header>
+
+<main class="blog-grid">
+
+  <a href="blog/how-two-friends-built-a-roblox-game.html" class="blog-card">
+    <div class="blog-card-number">01</div>
+    <div class="blog-card-content">
+      <div class="blog-card-tag">Studio Story</div>
+      <h2>How Two Friends Built a Roblox Game From Scratch</h2>
+      <p>The story of how Goonblox Importers went from zero Roblox experience to building MergePets — a merge + idle game with 22 pet families across 4 zones.</p>
+      <div class="blog-card-meta">March 27, 2026 &middot; 6 min read</div>
+    </div>
+  </a>
+
+  <a href="blog/fair-monetization-in-roblox-games.html" class="blog-card">
+    <div class="blog-card-number">02</div>
+    <div class="blog-card-content">
+      <div class="blog-card-tag">Game Design</div>
+      <h2>Fair Monetization in Roblox: Why We Said No to Pay-to-Win</h2>
+      <p>How we designed MergePets to be profitable without loot boxes, gambling mechanics, or predatory monetization — and why more Roblox games should do the same.</p>
+      <div class="blog-card-meta">March 27, 2026 &middot; 5 min read</div>
+    </div>
+  </a>
+
+  <a href="blog/why-merge-games-are-so-satisfying.html" class="blog-card">
+    <div class="blog-card-number">03</div>
+    <div class="blog-card-content">
+      <div class="blog-card-tag">Psychology</div>
+      <h2>The Psychology Behind Merge Games: Why They Feel So Good</h2>
+      <p>What makes combining two digital pets so deeply satisfying? The science of variable rewards, completion loops, and progression design in merge games.</p>
+      <div class="blog-card-meta">March 27, 2026 &middot; 5 min read</div>
+    </div>
+  </a>
+
+  <a href="blog/building-egyptian-pyramid-in-roblox.html" class="blog-card">
+    <div class="blog-card-number">04</div>
+    <div class="blog-card-content">
+      <div class="blog-card-tag">Behind the Scenes</div>
+      <h2>Building an Egyptian Pyramid Inside Roblox: 980 Parts, Zero Meshes</h2>
+      <p>How we built MergePets' Desert Zone — a full-scale Egyptian pyramid interior with columns, braziers, hieroglyphs, and a secret chamber — using only BaseParts.</p>
+      <div class="blog-card-meta">March 27, 2026 &middot; 7 min read</div>
+    </div>
+  </a>
+
+  <a href="blog/5-roblox-game-design-lessons.html" class="blog-card">
+    <div class="blog-card-number">05</div>
+    <div class="blog-card-content">
+      <div class="blog-card-tag">Lessons Learned</div>
+      <h2>5 Roblox Game Design Lessons We Learned the Hard Way</h2>
+      <p>From broken gacha systems to security exploits — the mistakes we made building MergePets and what every Roblox developer can learn from them.</p>
+      <div class="blog-card-meta">March 27, 2026 &middot; 6 min read</div>
+    </div>
+  </a>
+
+</main>
+
+<footer>
+  <div class="f-logo">GOONBLOX IMPORTERS</div>
+  <div class="f-sub">WE BUILD WORLDS</div>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <span style="color:var(--steel);margin:0 0.6rem;">&middot;</span>
+    <a href="blog.html">Blog</a>
+    <span style="color:var(--steel);margin:0 0.6rem;">&middot;</span>
+    <a href="brand.html">Brand Assets</a>
+  </div>
+  <div class="f-copy">&copy; 2026 Goonblox Importers, Inc. All Rights Reserved</div>
+</footer>
+
+</body>
+</html>

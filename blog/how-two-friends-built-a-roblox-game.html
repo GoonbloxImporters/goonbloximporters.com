@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Two Friends Built a Roblox Game From Scratch — Goonblox Importers</title>
+<meta name="description" content="The story of how Goonblox Importers went from zero Roblox experience to building MergePets — a multiplayer merge + idle pet game with 22 pet families, 4 explorable zones, and thousands of daily players.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://goonbloximporters.com/blog/how-two-friends-built-a-roblox-game.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://goonbloximporters.com/blog/how-two-friends-built-a-roblox-game.html">
+<meta property="og:title" content="How Two Friends Built a Roblox Game From Scratch">
+<meta property="og:description" content="From zero experience to a live multiplayer game with 22 pet families and 4 zones. The Goonblox Importers origin story.">
+<meta property="og:image" content="https://goonbloximporters.com/og-image.png">
+<meta property="article:published_time" content="2026-03-27">
+<meta property="article:author" content="Goonblox Importers">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How Two Friends Built a Roblox Game From Scratch",
+  "description": "The story of how Goonblox Importers went from zero Roblox experience to building MergePets.",
+  "datePublished": "2026-03-27",
+  "author": { "@type": "Organization", "name": "Goonblox Importers" },
+  "publisher": { "@type": "Organization", "name": "Goonblox Importers", "url": "https://goonbloximporters.com" },
+  "mainEntityOfPage": "https://goonbloximporters.com/blog/how-two-friends-built-a-roblox-game.html"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chakra+Petch:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--neon-magenta:#FF2D78;--electric-violet:#8B5CF6;--cyber-teal:#06D6A0;--solar-amber:#FFB627;--void-black:#0A0A0F;--deep-space:#12121C;--nebula-gray:#1E1E2E;--steel:#2A2A3E;--muted:#6B7280;--silver:#A1A1B5;--cloud:#E5E5F0;--pure-white:#FAFAFF;--grad-primary:linear-gradient(135deg,var(--neon-magenta),var(--electric-violet));--font-display:'Archivo Black',sans-serif;--font-heading:'Syne',sans-serif;--font-ui:'Chakra Petch',sans-serif;--font-body:'DM Sans',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--void-black);color:var(--cloud);font-family:var(--font-body);line-height:1.7}::selection{background:var(--neon-magenta);color:white}a{color:var(--cyber-teal);text-decoration:none;transition:color 0.2s}a:hover{color:var(--pure-white)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(139,92,246,0.1)}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}.nav-logo svg{width:28px;height:28px}.nav-logo span{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.1em;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}.nav-links a{color:var(--silver);text-decoration:none;font-family:var(--font-ui);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}.nav-links a:hover{color:var(--pure-white)}.nav-links a.active{color:var(--cyber-teal)}
+
+article{max-width:720px;margin:0 auto;padding:8rem 2rem 4rem}
+article header{margin-bottom:2.5rem}
+.article-tag{font-family:var(--font-ui);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--neon-magenta);margin-bottom:0.5rem}
+article h1{font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:0.8rem;color:var(--pure-white)}
+.article-meta{font-family:var(--font-ui);font-size:0.7rem;color:var(--muted);letter-spacing:0.05em}
+
+article h2{font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--pure-white);margin:2.5rem 0 1rem;line-height:1.2}
+article h3{font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--silver);margin:2rem 0 0.8rem}
+article p{color:var(--silver);margin-bottom:1.2rem;font-size:1rem}
+article strong{color:var(--pure-white)}
+article ul,article ol{color:var(--silver);margin:0 0 1.2rem 1.5rem}
+article li{margin-bottom:0.4rem}
+article blockquote{border-left:3px solid var(--electric-violet);padding:1rem 1.5rem;margin:1.5rem 0;background:var(--deep-space);border-radius:0 8px 8px 0;font-style:italic;color:var(--silver)}
+
+.article-cta{margin-top:3rem;padding:2rem;background:var(--deep-space);border:1px solid var(--steel);border-radius:16px;text-align:center}
+.article-cta h3{margin:0 0 0.5rem;color:var(--pure-white)}
+.article-cta p{margin-bottom:1rem}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;border-radius:50px;font-family:var(--font-ui);font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-decoration:none;background:var(--grad-primary);color:white;transition:all 0.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,45,120,0.3);color:white}
+
+.back-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--silver);margin-bottom:2rem}
+.back-link:hover{color:var(--cyber-teal)}
+
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--steel)}
+.f-logo{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.15em;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.f-sub{font-family:var(--font-ui);font-size:0.55rem;letter-spacing:0.3em;color:var(--muted);margin-top:0.3rem}
+.f-links{margin-top:1rem}.f-links a{color:var(--silver);font-size:0.75rem}.f-links a:hover{color:var(--pure-white)}
+.f-copy{font-size:0.65rem;color:var(--muted);margin-top:1rem}
+
+@media(max-width:600px){nav{padding:0.8rem 1.2rem}.nav-links{display:none}article{padding:6rem 1.2rem 3rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="22" fill="#12121C"/><defs><linearGradient id="ng" x1="20" y1="20" x2="80" y2="80"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect x="20" y="20" width="18" height="18" rx="3" fill="url(#ng)" opacity="0.3"/><rect x="62" y="24" width="12" height="12" rx="2" fill="url(#ng)" opacity="0.2"/><rect x="22" y="66" width="14" height="14" rx="2" fill="url(#ng)" opacity="0.25"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="url(#ng)"/><rect x="54" y="50" width="12" height="12" rx="2" fill="url(#ng)"/></svg>
+    <span>GOONBLOX IMPORTERS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#games">Games</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../brand.html">Brand</a></li>
+  </ul>
+</nav>
+
+<article>
+  <a href="../blog.html" class="back-link">&larr; Back to Blog</a>
+
+  <header>
+    <div class="article-tag">Studio Story</div>
+    <h1>How Two Friends Built a Roblox Game From Scratch</h1>
+    <div class="article-meta">March 27, 2026 &middot; 6 min read &middot; By Goonblox Importers</div>
+  </header>
+
+  <p>In early 2025, neither of us had ever opened Roblox Studio. Chris was a builder and creative thinker. Gio had a background in business and product. Neither of us was a Luau programmer. We had one thing in common: we believed two people could build something that thousands of players would love.</p>
+
+  <p>This is the story of how <strong>Goonblox Importers</strong> went from a shared Discord call to a live multiplayer game with 22 pet families, 4 explorable zones, and a community growing every day.</p>
+
+  <h2>Starting From Zero</h2>
+
+  <p>The Roblox developer ecosystem can feel overwhelming. There are studios with 20+ engineers, millions in funding, and years of experience. We had none of that. What we had was a simple idea: <strong>what if a merge game could also be an idle game?</strong></p>
+
+  <p>Merge games are satisfying because of the dopamine loop — combine two things, get a better thing, repeat. Idle games are compelling because they reward you even when you're not playing. Nobody on Roblox had combined the two well. That was our gap.</p>
+
+  <p>We started with a 5x5 grid, a puppy model, and the merge mechanic. Within a week we had pets combining through 4 tiers. It was ugly. It was buggy. But when we watched the first pet evolve from a tiny puppy to a larger, glowing version — we knew we had something.</p>
+
+  <h2>The First 100 Hours</h2>
+
+  <p>Building a Roblox game as a two-person team means doing everything. There is no "I'll handle the frontend, you handle the backend" — both of you do all of it.</p>
+
+  <p>Our first 100 hours of development taught us:</p>
+
+  <ul>
+    <li><strong>Luau is forgiving.</strong> Coming from other languages, Roblox's scripting language was surprisingly approachable. The documentation is excellent.</li>
+    <li><strong>Client-server architecture matters immediately.</strong> Unlike single-player games, every action in Roblox needs to be validated on the server. We learned this the hard way when our first playtest had someone giving themselves infinite coins.</li>
+    <li><strong>Roblox Studio is powerful but quirky.</strong> The 3D building tools are incredible. The scripting IDE is... functional. We learned to love external tools early.</li>
+    <li><strong>Playtesting reveals everything.</strong> Features that felt brilliant in isolation fell apart when a real player touched them. We started playtesting every day.</li>
+  </ul>
+
+  <h2>From One Zone to Four</h2>
+
+  <p>MergePets launched internally with just the Meadow — 7 pet families (Puppy, Kitten, Bunny, Hamster, Bird, Turtle, and the beloved Frog Wizard) on a sunny green field. But we always planned for more.</p>
+
+  <p>The zone system became the backbone of progression:</p>
+
+  <ul>
+    <li><strong>Meadow</strong> (free, 1x CPS) — Where everyone starts. Friendly, bright, forgiving.</li>
+    <li><strong>Jungle</strong> (T5 sacrifice + 50K coins, 2x CPS) — Dense canopy, exotic pets. Your first real milestone.</li>
+    <li><strong>Arctic</strong> (T6 + 500K coins, 4x CPS) — Ice caves, snow, and Huskies. The difficulty ramp hits here.</li>
+    <li><strong>Desert Pyramid</strong> (T8 + 2M coins, 8x CPS) — A full Egyptian pyramid you explore from the inside. 980 BaseParts, zero imported meshes. Plus a secret chamber with a 1M coin reward.</li>
+  </ul>
+
+  <p>Each zone took weeks to build. The Desert Pyramid alone required designing columns, braziers with animated fire, hieroglyph panels, and a lighting system with spotlights casting through windows. All from primitive Roblox parts.</p>
+
+  <h2>Systems on Top of Systems</h2>
+
+  <p>What separates a prototype from a game is depth. Over months, we layered system after system:</p>
+
+  <ul>
+    <li><strong>Rarity system</strong> — 6 tiers from Common (70%) to Mythical (special). Plus Golden and Rainbow variants.</li>
+    <li><strong>Combo system</strong> — Chain same-family merges for escalating multipliers and gem drops.</li>
+    <li><strong>Smart quests</strong> — AI-adapted daily quests that detect whether you're a Collector, Grinder, Explorer, or Competitor, then serve quests you'll actually enjoy.</li>
+    <li><strong>Home building</strong> — 5 architectural styles, 3 upgrade tiers each, furniture with CPS bonuses, daily bonus objects.</li>
+    <li><strong>Pasture system</strong> — Place pets in pastures for passive income. Feed them, groom them, watch them generate coins while you sleep.</li>
+    <li><strong>Leaderboards</strong> — Per-zone merge count leaderboards with physical statue pedestals for the top 3 players.</li>
+  </ul>
+
+  <p>Each system feeds into the others. Merging creates pets. Pets go into pastures. Pastures earn coins. Coins unlock zones. Zones have new pets. The loop is self-reinforcing.</p>
+
+  <h2>What We'd Tell Other Small Studios</h2>
+
+  <p>If you're two people thinking about building a Roblox game, here's our honest advice:</p>
+
+  <ol>
+    <li><strong>Start with the core loop.</strong> Don't build 20 features. Build the one thing that makes your game feel good. For us, that was the merge animation.</li>
+    <li><strong>Playtest daily.</strong> Not weekly. Daily. Watch someone play your game without helping them. The things that confuse them will surprise you.</li>
+    <li><strong>Build security from day one.</strong> Every RemoteEvent needs server validation. Every currency transaction needs a mutex. Every action needs rate limiting. Exploiters will find anything you miss.</li>
+    <li><strong>Ship fast, iterate faster.</strong> Our first version was embarrassing. But it was live, and real players were giving us real feedback. That's worth more than months of polishing in private.</li>
+    <li><strong>Stay fair.</strong> We made a deliberate choice: no Robux gambling, no pay-to-win, transparent odds. Players notice. Parents notice. And it's just the right thing to do.</li>
+  </ol>
+
+  <h2>What's Next</h2>
+
+  <p>Goonblox Importers is still just two people. We're still shipping updates every week. We have a weather events system ready to launch, a merge race PvP mode in testing, and plans for seasonal events throughout 2026.</p>
+
+  <p>The Roblox platform has given two people with no prior game dev experience the ability to build something real — something players come back to every day. If you've been thinking about building your own game, the barrier to entry has never been lower.</p>
+
+  <p>The hard part isn't starting. It's shipping.</p>
+
+  <div class="article-cta">
+    <h3>Want to see what we built?</h3>
+    <p>MergePets is free to play on Roblox. 22 pet families, 4 zones, zero pay-to-win.</p>
+    <a href="../index.html#games" class="btn">Learn More About MergePets</a>
+  </div>
+</article>
+
+<footer>
+  <div class="f-logo">GOONBLOX IMPORTERS</div>
+  <div class="f-sub">WE BUILD WORLDS</div>
+  <div class="f-links">
+    <a href="../index.html">Home</a>
+    <span style="color:var(--steel);margin:0 0.6rem;">&middot;</span>
+    <a href="../blog.html">Blog</a>
+    <span style="color:var(--steel);margin:0 0.6rem;">&middot;</span>
+    <a href="../brand.html">Brand Assets</a>
+  </div>
+  <div class="f-copy">&copy; 2026 Goonblox Importers, Inc. All Rights Reserved</div>
+</footer>
+
+</body>
+</html>

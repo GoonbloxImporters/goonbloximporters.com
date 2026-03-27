@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Roblox Game Design Lessons We Learned the Hard Way — Goonblox Importers</title>
+<meta name="description" content="From broken gacha systems to security exploits — 5 game design mistakes we made building MergePets on Roblox and what every developer can learn from them.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://goonbloximporters.com/blog/5-roblox-game-design-lessons.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://goonbloximporters.com/blog/5-roblox-game-design-lessons.html">
+<meta property="og:title" content="5 Roblox Game Design Lessons We Learned the Hard Way">
+<meta property="og:description" content="The mistakes we made building MergePets and what every Roblox developer can learn from them.">
+<meta property="og:image" content="https://goonbloximporters.com/og-image.png">
+<meta property="article:published_time" content="2026-03-27">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "5 Roblox Game Design Lessons We Learned the Hard Way",
+  "description": "Game design mistakes from building MergePets on Roblox and lessons for developers.",
+  "datePublished": "2026-03-27",
+  "author": { "@type": "Organization", "name": "Goonblox Importers" },
+  "publisher": { "@type": "Organization", "name": "Goonblox Importers", "url": "https://goonbloximporters.com" },
+  "mainEntityOfPage": "https://goonbloximporters.com/blog/5-roblox-game-design-lessons.html"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chakra+Petch:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--neon-magenta:#FF2D78;--electric-violet:#8B5CF6;--cyber-teal:#06D6A0;--solar-amber:#FFB627;--void-black:#0A0A0F;--deep-space:#12121C;--nebula-gray:#1E1E2E;--steel:#2A2A3E;--muted:#6B7280;--silver:#A1A1B5;--cloud:#E5E5F0;--pure-white:#FAFAFF;--grad-primary:linear-gradient(135deg,var(--neon-magenta),var(--electric-violet));--font-display:'Archivo Black',sans-serif;--font-heading:'Syne',sans-serif;--font-ui:'Chakra Petch',sans-serif;--font-body:'DM Sans',sans-serif}
+html{scroll-behavior:smooth}body{background:var(--void-black);color:var(--cloud);font-family:var(--font-body);line-height:1.7}::selection{background:var(--neon-magenta);color:white}a{color:var(--cyber-teal);text-decoration:none;transition:color 0.2s}a:hover{color:var(--pure-white)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(139,92,246,0.1)}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}.nav-logo svg{width:28px;height:28px}.nav-logo span{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.1em;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}.nav-links a{color:var(--silver);text-decoration:none;font-family:var(--font-ui);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}.nav-links a:hover{color:var(--pure-white)}.nav-links a.active{color:var(--cyber-teal)}
+article{max-width:720px;margin:0 auto;padding:8rem 2rem 4rem}article header{margin-bottom:2.5rem}
+.article-tag{font-family:var(--font-ui);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--neon-magenta);margin-bottom:0.5rem}
+article h1{font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:0.8rem;color:var(--pure-white)}
+.article-meta{font-family:var(--font-ui);font-size:0.7rem;color:var(--muted);letter-spacing:0.05em}
+article h2{font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--pure-white);margin:2.5rem 0 1rem;line-height:1.2}
+article p{color:var(--silver);margin-bottom:1.2rem;font-size:1rem}article strong{color:var(--pure-white)}
+article ul,article ol{color:var(--silver);margin:0 0 1.2rem 1.5rem}article li{margin-bottom:0.4rem}
+article blockquote{border-left:3px solid var(--electric-violet);padding:1rem 1.5rem;margin:1.5rem 0;background:var(--deep-space);border-radius:0 8px 8px 0;font-style:italic;color:var(--silver)}
+.lesson-number{font-family:var(--font-display);font-size:3rem;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:0.5rem;display:block}
+.article-cta{margin-top:3rem;padding:2rem;background:var(--deep-space);border:1px solid var(--steel);border-radius:16px;text-align:center}
+.article-cta h3{margin:0 0 0.5rem;color:var(--pure-white);font-family:var(--font-heading);font-weight:800;font-size:1.1rem}.article-cta p{margin-bottom:1rem}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.5rem;border-radius:50px;font-family:var(--font-ui);font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-decoration:none;background:var(--grad-primary);color:white;transition:all 0.25s}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,45,120,0.3);color:white}
+.back-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--silver);margin-bottom:2rem}.back-link:hover{color:var(--cyber-teal)}
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--steel)}.f-logo{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.15em;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.f-sub{font-family:var(--font-ui);font-size:0.55rem;letter-spacing:0.3em;color:var(--muted);margin-top:0.3rem}.f-links{margin-top:1rem}.f-links a{color:var(--silver);font-size:0.75rem}.f-links a:hover{color:var(--pure-white)}.f-copy{font-size:0.65rem;color:var(--muted);margin-top:1rem}
+@media(max-width:600px){nav{padding:0.8rem 1.2rem}.nav-links{display:none}article{padding:6rem 1.2rem 3rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="22" fill="#12121C"/><defs><linearGradient id="ng" x1="20" y1="20" x2="80" y2="80"><stop stop-color="#FF2D78"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect x="20" y="20" width="18" height="18" rx="3" fill="url(#ng)" opacity="0.3"/><rect x="62" y="24" width="12" height="12" rx="2" fill="url(#ng)" opacity="0.2"/><rect x="22" y="66" width="14" height="14" rx="2" fill="url(#ng)" opacity="0.25"/><path d="M62 38H42C38.7 38 36 40.7 36 44V56C36 59.3 38.7 62 42 62H58V54H46V46H62V38Z" fill="url(#ng)"/><rect x="54" y="50" width="12" height="12" rx="2" fill="url(#ng)"/></svg>
+    <span>GOONBLOX IMPORTERS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#games">Games</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../brand.html">Brand</a></li>
+  </ul>
+</nav>
+
+<article>
+  <a href="../blog.html" class="back-link">&larr; Back to Blog</a>
+
+  <header>
+    <div class="article-tag">Lessons Learned</div>
+    <h1>5 Roblox Game Design Lessons We Learned the Hard Way</h1>
+    <div class="article-meta">March 27, 2026 &middot; 6 min read &middot; By Goonblox Importers</div>
+  </header>
+
+  <p>We've been building MergePets for months now. Along the way, we've made every mistake in the book — and some that aren't in any book. Here are five lessons that cost us time, players, or sanity, and what we'd do differently.</p>
+
+  <span class="lesson-number">01</span>
+  <h2>Don't Ship Features You Haven't Stress-Tested</h2>
+
+  <p>We built a gacha system early on. It looked great. The animations were smooth. The odds were fair. And when we shipped it, <strong>it didn't work</strong>.</p>
+
+  <p>The system involved multiple server-side services talking to each other — currency deduction, random pet generation, inventory insertion, visual feedback. Under ideal conditions, everything worked. Under real conditions — multiple players spinning simultaneously, network latency, race conditions — it fell apart.</p>
+
+  <p>Players lost currency without getting pets. Some got pets without paying. The experience was so unreliable that we had to disable the entire system and rebuild it from scratch.</p>
+
+  <blockquote>The lesson: A feature that works in Studio with one player is not a feature that works in a live server with 20. Stress-test everything with concurrent users before shipping.</blockquote>
+
+  <span class="lesson-number">02</span>
+  <h2>Security Is Not Optional — It's Day One</h2>
+
+  <p>In our first live playtest, someone figured out how to fire RemoteEvents directly and give themselves unlimited coins. Within 30 minutes, they had every pet in the game, maxed every upgrade, and were spamming the leaderboard.</p>
+
+  <p>We learned a painful truth about Roblox development: <strong>the client is the enemy</strong>. Every RemoteEvent is an API endpoint that any player can call with any arguments. If your server doesn't validate every single parameter, someone will exploit it.</p>
+
+  <p>Our security system now includes:</p>
+  <ul>
+    <li><strong>Rate limiting</strong> on all merge actions (max 5 merges per second)</li>
+    <li><strong>Mutex locks</strong> on all currency transactions (no double-spending)</li>
+    <li><strong>Ownership verification</strong> on every merge (you can only merge your own pets)</li>
+    <li><strong>Server-side validation</strong> on every quest claim, login reward, and shop purchase</li>
+    <li><strong>Admin hardening</strong> — admin commands only work for whitelisted UserIds</li>
+    <li><strong>CPS cap</strong> at 100K to prevent overflow exploits</li>
+  </ul>
+
+  <p>Every single fix has a toggle in our SecurityConfig so we can disable individual protections if they cause issues. Build security as a system, not a series of patches.</p>
+
+  <blockquote>The lesson: Assume every player is a pentester. Validate everything server-side. Build toggleable security from day one.</blockquote>
+
+  <span class="lesson-number">03</span>
+  <h2>The First 60 Seconds Decide Everything</h2>
+
+  <p>We spent weeks building the Desert Pyramid, the combo system, the pasture feeding mechanic, zone leaderboards — all incredible features that most players never saw.</p>
+
+  <p>Why? Because our tutorial was bad.</p>
+
+  <p>New players landed in the Meadow with a 5x5 grid and no idea what to do. The tutorial was a series of text popups that nobody read. Players clicked through them, stared at a grid of identical puppies, dragged one pet onto another by accident, and... left.</p>
+
+  <p>We redesigned the first 60 seconds to be <strong>guided by action, not text</strong>:</p>
+  <ol>
+    <li>A single arrow points to two matching pets</li>
+    <li>Player drags them together — satisfying merge animation plays</li>
+    <li>Immediate reward (coins, confetti)</li>
+    <li>Arrow points to next merge</li>
+    <li>Within 30 seconds, they've done 3 merges and unlocked their first quest</li>
+  </ol>
+
+  <p>No text walls. No "Welcome to MergePets! In this game you will..." Just do the thing, see the result, want to do it again.</p>
+
+  <blockquote>The lesson: Players decide if your game is worth their time in under 60 seconds. Make those seconds count. Show, don't tell.</blockquote>
+
+  <span class="lesson-number">04</span>
+  <h2>Systems That Don't Connect Are Just Bloat</h2>
+
+  <p>At one point, MergePets had a pasture system, a home building system, a quest system, a leaderboard system, a combo system, and a zone progression system. They all worked independently. None of them talked to each other.</p>
+
+  <p>Pastures generated coins but didn't care about your quest progress. Homes had furniture but none of it affected gameplay. Combos were satisfying but didn't impact your leaderboard score. Each system was an island.</p>
+
+  <p>We spent a full week rewiring everything:</p>
+  <ul>
+    <li>Home furniture now gives <strong>CPS bonuses</strong> — a bed gives a sleep boost, a fridge heals pets faster</li>
+    <li>Daily bonus objects in homes give <strong>coins, gems, lucky eggs, CPS multipliers, and evolve candy</strong></li>
+    <li>Combo multipliers now contribute to <strong>merge count leaderboards</strong></li>
+    <li>Smart quests adapt based on <strong>which systems you actually use</strong></li>
+    <li>Zone progression requires resources from <strong>previous zones</strong> (sacrifice a high-tier pet)</li>
+  </ul>
+
+  <p>Now every system feeds into at least two other systems. The result: players engage more deeply because each action has multiple payoffs.</p>
+
+  <blockquote>The lesson: Every system in your game should strengthen at least one other system. If it stands alone, it's a distraction, not a feature.</blockquote>
+
+  <span class="lesson-number">05</span>
+  <h2>Don't Build What Players Won't Notice</h2>
+
+  <p>We spent two days building an elaborate 89,000-character HomeConfig file with detailed furniture specifications, multi-tier progression trees, and helper functions that generated decorative variations. It was architecturally beautiful. Nobody cared.</p>
+
+  <p>Players cared about: Does the home look cool? Can I collect my daily bonus? Does my CPS go up?</p>
+
+  <p>They didn't care about: The internal data structure, the config file organization, or whether the code was DRY.</p>
+
+  <p>We refactored that 89K config down to 28K — removing 62K of duplicated junk — and the game didn't change at all from the player's perspective. But those two days we spent on the original over-engineered version could have been spent on something players would actually feel.</p>
+
+  <p>This applies to visual design too. We built an elaborate treehouse system for homes — trunks, branches, climbing mechanics, elevated plots. Players found it confusing and disorienting. We deleted all of it and put homes on the ground at Y=0.5. Everyone was happier.</p>
+
+  <blockquote>The lesson: Optimize for player experience, not engineering elegance. The best code is code that makes players smile — not code that makes developers proud.</blockquote>
+
+  <h2>The Meta-Lesson</h2>
+
+  <p>All five lessons boil down to one thing: <strong>build for the player, not for yourself</strong>. Stress-test because players will break things. Secure because players will exploit things. Nail the tutorial because players will leave. Connect systems because players want depth. And don't over-engineer because players want fun, not architecture.</p>
+
+  <p>We're still learning. Every week brings a new mistake and a new lesson. But that's the job. Ship, learn, iterate. The game is better today than it was yesterday. Tomorrow it'll be better still.</p>
+
+  <div class="article-cta">
+    <h3>See the lessons in action</h3>
+    <p>MergePets on Roblox — built by two people making every mistake possible, one at a time.</p>
+    <a href="../index.html#games" class="btn">Learn More About MergePets</a>
+  </div>
+</article>
+
+<footer>
+  <div class="f-logo">GOONBLOX IMPORTERS</div>
+  <div class="f-sub">WE BUILD WORLDS</div>
+  <div class="f-links"><a href="../index.html">Home</a><span style="color:var(--steel);margin:0 0.6rem;">&middot;</span><a href="../blog.html">Blog</a><span style="color:var(--steel);margin:0 0.6rem;">&middot;</span><a href="../brand.html">Brand Assets</a></div>
+  <div class="f-copy">&copy; 2026 Goonblox Importers, Inc. All Rights Reserved</div>
+</footer>
+
+</body>
+</html>
