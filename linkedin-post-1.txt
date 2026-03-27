@@ -1,0 +1,20 @@
+We're Goonblox Importers. We build worlds on Roblox.
+
+We're an indie game studio focused on one thing: building Roblox games that are fun AND fair.
+
+No pay-to-win. No gambling mechanics. No predatory monetization aimed at kids. Just good game design.
+
+We just launched our dev blog — real talk about Roblox game development, the design decisions behind our work, and why ethical monetization matters:
+
+📝 Fair Monetization in Roblox: Why We Said No to Pay-to-Win
+📝 The Psychology Behind Merge Games: Why They Feel So Good
+📝 Building an Egyptian Pyramid Inside Roblox: 980 Parts, Zero Meshes
+📝 5 Game Design Lessons We Learned the Hard Way
+
+New article every week.
+
+Our first game is coming soon. Stay tuned.
+
+🔗 goonbloximporters.com/blog.html
+
+#Roblox #GameDev #IndieDev #RobloxDeveloper #GameDesign #GoonbloxImporters
